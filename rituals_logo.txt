@@ -1,0 +1,65 @@
+106:        .logo {
+107-            display: inline-flex;
+108-            align-items: center;
+109-            gap: 0.6rem;
+110-            text-decoration: none;
+111-            flex-shrink: 0;
+112-            transition: transform 0.2s ease;
+113-            line-height: 1;
+114-        }
+115-        .logo:hover { transform: translateY(-1px); }
+116-
+117-        .logo-mark {
+118-            position: relative;
+119-            width: 2.4rem;
+120-            height: 2.4rem;
+121-            display: flex;
+122-            align-items: center;
+123-            justify-content: center;
+124-            border-radius: 0.55rem;
+125-            background: linear-gradient(135deg, var(--accent) 0%, #8F5518 100%);
+126-            box-shadow: 0 4px 12px rgba(200, 122, 59, 0.3);
+--
+389:            .logo { gap: 0.5rem; }
+390-        }
+391-
+392-        /* ══════════════════════════════════════════
+393-           MOBILE MENU
+394-           ══════════════════════════════════════════ */
+395-        .mobile-menu {
+396-            position: fixed;
+397-            top: 0; left: 0;
+398-            width: 100%; height: 100%;
+399-            background-color: var(--paper);
+400-            z-index: 9999;
+401-            overflow-y: auto;
+402-            transform: translateX(-100%);
+403-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+404-        }
+405-        [dir="rtl"] .mobile-menu { transform: translateX(100%); }
+406-        [dir="rtl"] .mobile-menu.active { transform: translateX(0); }
+407-        .mobile-menu.active { transform: translateX(0); }
+408-
+409-        .mobile-menu-header {
+--
+1472:        .footer-brand .logo { margin-bottom: 1rem; }
+1473-        .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 0.3rem; }
+1474-        .footer-social { display: flex; gap: 0.9rem; margin-top: 1.2rem; }
+1475-        .footer-social-link {
+1476-            width: 2.4rem; height: 2.4rem; background-color: rgba(200,122,59,0.15);
+1477-            border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+1478-            color: var(--accent); transition: 0.2s; text-decoration: none;
+1479-            border: 1px solid var(--accent);
+1480-            font-size: 0.9rem;
+1481-        }
+1482-        .footer-social-link:hover { background-color: var(--accent); color: #0A0A0A; transform: translateY(-3px); }
+1483-        [data-theme="light"] .footer-social-link:hover { color: #FFFFFF; }
+1484-        .footer-heading { font-size: 1.05rem; font-weight: 700; margin-bottom: 1.4rem; color: var(--accent); line-height: 1; }
+1485-        .footer-links { list-style: none; }
+1486-        .footer-links li { margin-bottom: 0.7rem; }
+1487-        .footer-links a { color: var(--footer-text); transition: 0.2s; display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font-size: 0.9rem; }
+1488-        .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+1489-        .footer-newsletter p { color: var(--footer-text); font-size: 0.9rem; margin-bottom: 1rem; }
+1490-        .footer-input { width: 100%; padding: 0.8rem 1rem; border-radius: 9999px; background: var(--bg-secondary); border: 1px solid var(--accent); color: var(--text-main); font-size: 0.9rem; }
+1491-        .footer-input::placeholder { color: var(--footer-text); }
+1492-        .footer-btn { width: 100%; background-color: var(--accent); color: #0A0A0A; padding: 0.8rem; border-radius: 9999px; font-weight: bold; border: none; cursor: pointer; margin-top: 0.5rem; transition: 0.2s; font-size: 0.9rem; }

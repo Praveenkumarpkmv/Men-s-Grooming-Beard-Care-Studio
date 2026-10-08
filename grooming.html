@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iron & Oak Grooming – signature haircuts, hot towel shaves, fades, and grooming services from master barbers.">
+    <title>Grooming | Iron & Oak Men's Grooming Studio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C87A3B'%3E%3Ccircle cx='12' cy='12' r='4' fill='%23C87A3B'/%3E%3Cpath d='M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1' stroke='%23C87A3B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-black: #111111;
+            --text-white: #FFFFFF;
+            --accent: #C87A3B;
+            --accent-soft: rgba(200, 122, 59, 0.15);
+            --border-dim: rgba(200, 122, 59, 0.2);
+            --card-bg: #1A1A1A;
+            --heading-font: 'Playfair Display', serif;
+            --navbar-bg: rgba(17, 17, 17, 0.85);
+            --bg-primary: #111111;
+            --bg-secondary: #1A1A1A;
+            --text-main: #E0DEC8;
+            --text-heading: #FFFFFF;
+            --footer-text: #A9A48C;
+        }
+
+        [data-theme="light"] {
+            --bg-black: #FFFFFF;
+            --text-white: #111111;
+            --accent: #C87A3B;
+            --accent-soft: rgba(200, 122, 59, 0.12);
+            --border-dim: rgba(0, 0, 0, 0.1);
+            --card-bg: #FFFFFF;
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F3F4F6;
+            --text-main: #333333;
+            --text-heading: #111111;
+            --footer-text: #666666;
+        }
+
+        html, body { overflow-x: hidden; width: 100%; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--text-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        p { font-weight: 500; }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .navbar-flex { flex-direction: row-reverse; }
+        [dir="rtl"] .footer-main,
+        [dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+        [dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
+        [dir="rtl"] .logo-word { align-items: flex-end; }
+
+        /* ══════════════════════════════════════════
+           SHARED LOGO
+           ══════════════════════════════════════════ */
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+            line-height: 1;
+        }
+        .logo:hover { transform: translateY(-1px); }
+
+        .logo-mark {
+            position: relative;
+            width: 2.4rem;
+            height: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.55rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #8F5518 100%);
+            box-shadow: 0 4px 12px rgba(200, 122, 59, 0.3);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease;
+        }
+        .logo:hover .logo-mark::after { transform: translateX(100%); }
+        .logo-mark i {
+            color: #0A0A0A;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        [data-theme="light"] .logo-mark i { color: #FFFFFF; }
+
+        .logo-word { align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1;
+        }
+        .logo-text {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--text-heading);
+            white-space: nowrap;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--accent); }
+        .logo-tagline {
+            font-size: 0.5rem;
+            color: var(--footer-text);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 0.22rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        /* ══════════════════════════════════════════
+           NAVBAR
+           ══════════════════════════════════════════ */
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--navbar-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-dim);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .navbar-container::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: -1px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.4;
+        }
+
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 4rem;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .nav-link {
+            position: relative;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.55rem 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.25s ease;
+            white-space: nowrap;
+            line-height: 1;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0.1rem;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 55%; }
+        .nav-link.active { color: var(--accent); font-weight: 600; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.3rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 12px;
+            min-width: 160px;
+            padding: 0.4rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.22s ease;
+            z-index: 1000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        [dir="rtl"] .dropdown-menu { left: auto; right: 50%; transform: translateX(50%) translateY(8px); }
+        [dir="rtl"] .dropdown:hover .dropdown-menu { transform: translateX(50%) translateY(0); }
+        .dropdown-item {
+            display: block;
+            padding: 0.55rem 0.85rem;
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .dropdown-item:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+        .dropdown-item.active {
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--accent-soft);
+        }
+
+        .navbar-right-desktop {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .icon-btn {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-heading);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        .icon-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0A0A0A;
+            transform: rotate(-8deg) scale(1.05);
+        }
+        [data-theme="light"] .icon-btn:hover { color: #FFFFFF; }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 9999px;
+            background: var(--accent);
+            color: #0A0A0A;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 14px rgba(200, 122, 59, 0.25);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        [data-theme="light"] .cta-btn { color: #FFFFFF; }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 122, 59, 0.35);
+        }
+        .cta-btn i { font-size: 0.72rem; }
+
+        .mobile-menu-btn {
+            display: none;
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 0.55rem;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .mobile-menu-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+        .mobile-menu-btn span {
+            position: absolute;
+            left: 50%;
+            width: 1.05rem;
+            height: 2px;
+            background: var(--text-heading);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: all 0.25s ease;
+        }
+        .mobile-menu-btn span:nth-child(1) { top: 0.75rem; }
+        .mobile-menu-btn span:nth-child(2) { top: 50%; transform: translate(-50%, -50%); }
+        .mobile-menu-btn span:nth-child(3) { bottom: 0.75rem; }
+        .mobile-menu-btn:hover span { background: var(--accent); }
+
+        @media (min-width: 1200px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        @media (max-width: 1199px) {
+            .desktop-nav { display: none; }
+            .navbar-right-desktop { display: none; }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 1.1rem; }
+            .navbar-flex { height: 3.6rem; gap: 0.8rem; }
+            .logo-text { font-size: 1.05rem; }
+            .logo-tagline { display: none; }
+            .logo-mark { width: 2.2rem; height: 2.2rem; }
+            .logo-mark i { font-size: 0.9rem; }
+            .logo { gap: 0.5rem; }
+        }
+
+        /* ══════════════════════════════════════════
+           MOBILE MENU
+           ══════════════════════════════════════════ */
+        .mobile-menu {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: var(--bg-primary);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [dir="rtl"] .mobile-menu { transform: translateX(100%); }
+        [dir="rtl"] .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu.active { transform: translateX(0); }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-dim);
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            z-index: 1;
+            height: 4rem;
+        }
+        .mobile-menu-close {
+            background: none;
+            border: 1px solid var(--border-dim);
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 0.55rem;
+            font-size: 1rem;
+            color: var(--text-heading);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .mobile-menu-close:hover { background: var(--accent); color: #0A0A0A; border-color: var(--accent); }
+        [data-theme="light"] .mobile-menu-close:hover { color: #FFFFFF; }
+
+        .mobile-menu-items {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.22s ease;
+        }
+        .mobile-nav-item:hover,
+        .mobile-nav-item.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-color: var(--border-dim);
+        }
+
+        .mobile-dropdown { width: 100%; }
+        .mobile-dropdown-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            font-weight: 500;
+            background: none;
+            border: 1px solid transparent;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+        .mobile-dropdown-btn:hover,
+        .mobile-dropdown-btn.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-color: var(--border-dim);
+        }
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-dropdown-content.active { max-height: 300px; }
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem 0.75rem 1.8rem;
+            color: var(--footer-text);
+            text-decoration: none;
+            border-radius: 9px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        [dir="rtl"] .mobile-dropdown-content a { padding: 0.75rem 1.8rem 0.75rem 1rem; }
+        .mobile-dropdown-content a.active { color: var(--accent); font-weight: 600; }
+        .mobile-dropdown-content a:hover { color: var(--accent); background: var(--accent-soft); }
+
+        .mobile-action-buttons {
+            margin-top: auto; align-self: flex-start;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-dim);
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .mobile-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: none;
+            border: 1px solid var(--border-dim);
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.22s ease;
+        }
+        .mobile-action-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+        .mobile-action-btn.primary {
+            background: var(--accent);
+            color: #0A0A0A;
+            border-color: var(--accent);
+        }
+        [data-theme="light"] .mobile-action-btn.primary { color: #FFFFFF; }
+        .mobile-action-btn.primary:hover { background: #E5A05F; color: #0A0A0A; }
+        [data-theme="light"] .mobile-action-btn.primary:hover { color: #FFFFFF; }
+
+        /* ══════════════════════════════════════════
+           SHARED BUTTONS
+           ══════════════════════════════════════════ */
+        .btn-primary {
+            background-color: var(--accent); color: #0A0A0A;
+            padding: 0.9rem 2rem; border-radius: 9999px;
+            font-weight: 700; display: inline-flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; transition: 0.2s; border: none; cursor: pointer;
+            font-size: 0.95rem; font-family: 'Inter', sans-serif;
+        }
+        [data-theme="light"] .btn-primary { color: #FFFFFF; }
+        .btn-primary:hover { background-color: #E5A05F; transform: translateY(-3px); color: #0A0A0A; }
+        [data-theme="light"] .btn-primary:hover { color: #FFFFFF; }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent); color: var(--accent);
+            padding: 0.9rem 2rem; border-radius: 9999px;
+            font-weight: 600; display: inline-flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; transition: 0.2s; cursor: pointer;
+            font-size: 0.95rem; font-family: 'Inter', sans-serif;
+        }
+        .btn-outline:hover { background: var(--accent); color: #0A0A0A; transform: translateY(-3px); }
+        [data-theme="light"] .btn-outline:hover { color: #FFFFFF; }
+
+        /* ══════════════════════════════════════════
+           HERO — Fullscreen slideshow
+           ══════════════════════════════════════════ */
+        .gr-hero {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .gr-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.2s ease, transform 8s ease;
+            transform: scale(1.05);
+        }
+        .gr-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .gr-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(17,17,17,0.92) 0%, rgba(17,17,17,0.6) 50%, rgba(17,17,17,0.85) 100%);
+        }
+        [data-theme="light"] .gr-slide::after {
+            background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 50%, rgba(200,122,59,0.15) 100%);
+        }
+
+        .gr-hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            padding: 8rem 0 5rem;
+        }
+
+        .gr-hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .gr-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .gr-hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.4rem 1.1rem;
+            border-radius: 40px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border-dim);
+            backdrop-filter: blur(8px);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.6rem;
+        }
+        [data-theme="light"] .gr-hero-tag { background: var(--accent-soft); }
+        .gr-hero-tag i {
+            animation: spin 8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .gr-hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5.2rem);
+            line-height: 0.98;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.4rem;
+            color: #fff;
+        }
+        [data-theme="light"] .gr-hero h1 { color: #111; }
+        .gr-hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+            background: linear-gradient(135deg, var(--accent), #F0B27A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gr-hero-desc {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
+            max-width: 520px;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        [data-theme="light"] .gr-hero-desc { color: #333; }
+        .gr-hero-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        /* Slide dots */
+        .gr-dots {
+            position: absolute;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            display: flex;
+            gap: 0.6rem;
+            z-index: 5;
+        }
+        @media (max-width: 900px) {
+            .gr-dots { right: 50%; transform: translateX(50%); bottom: 1.8rem; }
+        }
+        .gr-dot {
+            width: 40px;
+            height: 3px;
+            border-radius: 3px;
+            background: rgba(255,255,255,0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .gr-dot.active { background: rgba(255,255,255,0.4); }
+        .gr-dot.active::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent);
+            transform-origin: left;
+            animation: dotFill 6s linear;
+        }
+        [dir="rtl"] .gr-dot.active::after { transform-origin: right; }
+        @keyframes dotFill {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Hero quick-jump pills */
+        .gr-hero-jump {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.7rem;
+        }
+        .gr-jump-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.1rem 1.4rem;
+            background: rgba(17,17,17,0.55);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(200,122,59,0.3);
+            border-radius: 1rem;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        [data-theme="light"] .gr-jump-item {
+            background: rgba(255,255,255,0.7);
+            color: #111;
+        }
+        .gr-jump-item:hover {
+            border-color: var(--accent);
+            transform: translateX(-6px);
+            background: rgba(200,122,59,0.15);
+        }
+        [dir="rtl"] .gr-jump-item:hover { transform: translateX(6px); }
+        .gr-jump-left {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+        .gr-jump-icon {
+            width: 2.6rem; height: 2.6rem;
+            border-radius: 0.7rem;
+            background: var(--accent);
+            color: #0A0A0A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        [data-theme="light"] .gr-jump-icon { color: #FFFFFF; }
+        .gr-jump-label {
+            font-family: var(--heading-font);
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: inherit;
+        }
+        .gr-jump-sub {
+            font-size: 0.72rem;
+            opacity: 0.7;
+            margin-top: 0.15rem;
+            letter-spacing: 0.05em;
+        }
+        .gr-jump-arrow {
+            color: var(--accent);
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+        .gr-jump-item:hover .gr-jump-arrow { transform: translateX(4px); }
+        [dir="rtl"] .gr-jump-item:hover .gr-jump-arrow { transform: translateX(-4px) rotate(180deg); }
+        [dir="rtl"] .gr-jump-arrow { transform: rotate(180deg); }
+
+        /* ══════════════════════════════════════════
+           SECTION SHELL
+           ══════════════════════════════════════════ */
+        .section { padding: 5.5rem 0; }
+        .section-alt { background-color: var(--bg-secondary); }
+
+        .sec-head {
+            text-align: center;
+            max-width: 660px;
+            margin: 0 auto 3.5rem;
+        }
+        .sec-head .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        .sec-head .eyebrow::before,
+        .sec-head .eyebrow::after {
+            content: '';
+            width: 24px; height: 1px;
+            background: var(--accent);
+        }
+        .sec-head h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); margin-bottom: 0.7rem; }
+        .sec-head p { color: var(--footer-text); font-size: 0.95rem; }
+
+        /* ══════════════════════════════════════════
+           SECTION 1: SERVICE CATEGORIES (tabbed)
+           ══════════════════════════════════════════ */
+        .svc-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding: 0.4rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 9999px;
+            max-width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .svc-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .svc-tab i { font-size: 0.8rem; opacity: 0.7; }
+        .svc-tab:hover { color: var(--accent); }
+        .svc-tab.active {
+            background: var(--accent);
+            color: #0A0A0A;
+        }
+        [data-theme="light"] .svc-tab.active { color: #FFFFFF; }
+        .svc-tab.active i { opacity: 1; }
+
+        .svc-panel { display: none; }
+        .svc-panel.active { display: block; animation: panelFade 0.5s ease; }
+        @keyframes panelFade {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .svc-panel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 850px) {
+            .svc-panel-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .svc-panel-img {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid var(--border-dim);
+            aspect-ratio: 4 / 5;
+            position: relative;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.4);
+        }
+        .svc-panel-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+        .svc-panel:hover .svc-panel-img img { transform: scale(1.05); }
+        .svc-panel-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.7));
+        }
+        .svc-panel-badge {
+            position: absolute;
+            top: 1.2rem;
+            left: 1.2rem;
+            background: var(--accent);
+            color: #0A0A0A;
+            padding: 0.4rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+        [data-theme="light"] .svc-panel-badge { color: #FFFFFF; }
+        .svc-panel-price {
+            position: absolute;
+            bottom: 1.2rem;
+            right: 1.2rem;
+            color: #fff;
+            text-align: right;
+            z-index: 2;
+        }
+        .svc-panel-price .num {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .svc-panel-price .lbl {
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+        }
+
+        .svc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .svc-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1.1rem 1.3rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .svc-item:hover {
+            border-color: var(--accent);
+            transform: translateX(6px);
+        }
+        [dir="rtl"] .svc-item:hover { transform: translateX(-6px); }
+        .svc-item-name {
+            font-family: var(--heading-font);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.15rem;
+        }
+        .svc-item-desc {
+            font-size: 0.78rem;
+            color: var(--footer-text);
+            line-height: 1.45;
+        }
+        .svc-item-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-shrink: 0;
+        }
+        .svc-item-price {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-align: right;
+        }
+        .svc-item-time {
+            font-size: 0.68rem;
+            color: var(--footer-text);
+            letter-spacing: 0.05em;
+            margin-top: 0.15rem;
+            text-align: right;
+        }
+        @media (max-width: 560px) {
+            .svc-item { padding: 0.9rem 1rem; }
+            .svc-item-name { font-size: 0.98rem; }
+            .svc-item-desc { font-size: 0.72rem; }
+            .svc-item-price { font-size: 1rem; }
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION 2: PROCESS — horizontal scroll cards
+           ══════════════════════════════════════════ */
+        .process-scroller {
+            display: flex;
+            gap: 1.2rem;
+            overflow-x: auto;
+            padding: 1rem 0 2rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+        .process-scroller::-webkit-scrollbar { height: 6px; }
+        .process-scroller::-webkit-scrollbar-track { background: var(--border-dim); border-radius: 3px; }
+        .process-scroller::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        .process-card {
+            flex: 0 0 320px;
+            scroll-snap-align: start;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1.3rem;
+            padding: 2rem 1.6rem 1.6rem;
+            position: relative;
+            transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (max-width: 560px) {
+            .process-card { flex: 0 0 280px; padding: 1.5rem 1.3rem 1.3rem; }
+        }
+        .process-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 22px 50px rgba(0,0,0,0.35);
+        }
+        .process-num {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: var(--heading-font);
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            opacity: 0.12;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+        [dir="rtl"] .process-num { right: auto; left: 1rem; }
+        .process-icon {
+            width: 3rem; height: 3rem;
+            border-radius: 0.85rem;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+        .process-card:hover .process-icon { transform: scale(1.08) rotate(-8deg); }
+        .process-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+        .process-card p {
+            font-size: 0.85rem;
+            color: var(--footer-text);
+            line-height: 1.65;
+        }
+        .process-time {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: auto; align-self: flex-start;
+            font-size: 0.72rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.75rem;
+            border-radius: 40px;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-dim);
+        }
+
+        .scroll-hint {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--footer-text);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .scroll-hint i { color: var(--accent); animation: slideHint 2s ease-in-out infinite; }
+        @keyframes slideHint {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(6px); }
+        }
+        [dir="rtl"] .scroll-hint i { animation-direction: reverse; }
+
+        /* ══════════════════════════════════════════
+           SECTION 3: PRICE MENU (tabbed)
+           ══════════════════════════════════════════ */
+        .menu-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+        @media (max-width: 600px) { .menu-wrapper { padding: 1.5rem; } }
+        .menu-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            border-radius: 1.5rem 1.5rem 0 0;
+        }
+
+        .menu-tabs {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-dim);
+        }
+        .menu-tab {
+            padding: 0.55rem 1.1rem;
+            border-radius: 9999px;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+        .menu-tab:hover { border-color: var(--accent); color: var(--accent); }
+        .menu-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0A0A0A;
+        }
+        [data-theme="light"] .menu-tab.active { color: #FFFFFF; }
+
+        .menu-panel { display: none; }
+        .menu-panel.active { display: block; animation: panelFade 0.4s ease; }
+
+        .menu-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px dotted var(--border-dim);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .menu-item:last-child { border-bottom: none; }
+        .menu-item:hover { padding-left: 0.7rem; }
+        [dir="rtl"] .menu-item:hover { padding-left: 0; padding-right: 0.7rem; }
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            left: -0.1rem;
+            top: 50%;
+            transform: translateY(-50%) scaleX(0);
+            width: 3px;
+            height: 60%;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+        [dir="rtl"] .menu-item::before { left: auto; right: -0.1rem; transform-origin: right; }
+        .menu-item:hover::before { transform: translateY(-50%) scaleX(1); }
+
+        .menu-item-left .name {
+            font-family: var(--heading-font);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .menu-item-left .name .menu-badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.58rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 800;
+            padding: 0.2rem 0.55rem;
+            border-radius: 30px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid var(--border-dim);
+        }
+        .menu-item-left .desc {
+            font-size: 0.82rem;
+            color: var(--footer-text);
+            margin-top: 0.2rem;
+            line-height: 1.5;
+        }
+        .menu-item-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .menu-item-right .price {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .menu-item-right .time {
+            font-size: 0.68rem;
+            color: var(--footer-text);
+            letter-spacing: 0.08em;
+            margin-top: 0.15rem;
+        }
+        [dir="rtl"] .menu-item-right { text-align: left; }
+
+       /* ══════════════════════════════════════════
+   SECTION 4: ADD-ONS & EXTRAS
+   ══════════════════════════════════════════ */
+.extras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+.extra {
+    background: var(--card-bg);
+    border: 1px solid var(--border-dim);
+    border-radius: 1.2rem;
+    padding: 1.8rem 1.6rem 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+    overflow: hidden;
+}
+.extra::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.extra:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 22px 50px rgba(0,0,0,0.3);
+}
+.extra:hover::before { opacity: 1; }
+
+.extra-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+.extra-icon {
+    width: 3rem; height: 3rem;
+    border-radius: 0.85rem;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1.1rem;
+    transition: transform 0.4s ease, background 0.3s ease, color 0.3s ease;
+}
+.extra:hover .extra-icon {
+    transform: rotate(-10deg) scale(1.08);
+    background: var(--accent);
+    color: #0A0A0A;
+}
+[data-theme="light"] .extra:hover .extra-icon { color: #FFFFFF; }
+
+.extra-time {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--accent);
+    padding: 0.25rem 0.7rem;
+    border-radius: 30px;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-dim);
+    white-space: nowrap;
+}
+
+.extra h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.15;
+}
+.extra p {
+    font-size: 0.85rem;
+    color: var(--footer-text);
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+    flex: 1;
+}
+.extra-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-dim);
+    gap: 0.6rem;
+}
+.extra-price {
+    font-family: var(--heading-font);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    white-space: nowrap;
+}
+.extra-note {
+    font-size: 0.68rem;
+    color: var(--footer-text);
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    text-align: right;
+    line-height: 1.3;
+}
+[dir="rtl"] .extra-note { text-align: left; }
+
+        /* ══════════════════════════════════════════
+           SECTION 5: MEMBERSHIP TIERS
+           ══════════════════════════════════════════ */
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .tier {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1.4rem;
+            padding: 2.2rem 1.8rem;
+            position: relative;
+            transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .tier:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 22px 50px rgba(0,0,0,0.3);
+        }
+        .tier.featured {
+            border-color: var(--accent);
+            background: linear-gradient(180deg, var(--accent-soft) 0%, var(--card-bg) 30%);
+            transform: scale(1.02);
+        }
+        .tier.featured:hover { transform: scale(1.02) translateY(-6px); }
+
+        .tier-tag {
+            position: absolute;
+            top: -0.7rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #0A0A0A;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            white-space: nowrap;
+        }
+        [data-theme="light"] .tier-tag { color: #FFFFFF; }
+
+        .tier-head {
+            text-align: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--border-dim);
+            margin-bottom: 1.5rem;
+        }
+        .tier-head h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .tier-head .tier-sub {
+            font-size: 0.82rem;
+            color: var(--footer-text);
+            margin-bottom: 1.2rem;
+        }
+        .tier-price {
+            font-family: var(--heading-font);
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+        .tier-price small {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--footer-text);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+        }
+
+        .tier-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.8rem;
+            flex: 1;
+        }
+        .tier-features li {
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+            font-size: 0.87rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+        .tier-features li i {
+            color: var(--accent);
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        .tier-features li.muted {
+            color: var(--footer-text);
+            opacity: 0.6;
+        }
+        .tier-features li.muted i { color: var(--footer-text); }
+
+        .tier-btn {
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: 1.5px solid var(--accent);
+            background: transparent;
+            color: var(--accent);
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+        .tier-btn:hover { background: var(--accent); color: #0A0A0A; transform: translateY(-2px); }
+        [data-theme="light"] .tier-btn:hover { color: #FFFFFF; }
+        .tier.featured .tier-btn {
+            background: var(--accent);
+            color: #0A0A0A;
+        }
+        [data-theme="light"] .tier.featured .tier-btn { color: #FFFFFF; }
+        .tier.featured .tier-btn:hover { background: #E5A05F; }
+
+        /* ══════════════════════════════════════════
+           SECTION 6: CTA — dark luxe with gold frame
+           ══════════════════════════════════════════ */
+        .luxe-cta {
+            position: relative;
+            padding: 5rem 2.5rem;
+            border-radius: 2rem;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            text-align: center;
+        }
+        @media (max-width: 600px) { .luxe-cta { padding: 3.5rem 1.5rem; } }
+
+        .luxe-cta::before {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            border: 1px solid var(--accent);
+            border-radius: 1.5rem;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .luxe-cta-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .luxe-cta-ornament {
+            font-family: var(--heading-font);
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            opacity: 0.6;
+        }
+        .luxe-cta h2 {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        .luxe-cta h2 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+        }
+        .luxe-cta p {
+            color: var(--footer-text);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+        .luxe-cta-actions {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ══════════════════════════════════════════
+           FOOTER
+           ══════════════════════════════════════════ */
+        .footer { background-color: var(--bg-black); color: var(--text-white); padding: 4rem 0 2rem; position: relative; }
+        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent); }
+        .footer-main { display: grid; gap: 3rem; grid-template-columns: 1fr; margin-bottom: 3rem; align-items: start; }
+        @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 2fr; } }
+        .footer .logo .logo-text { color: var(--text-heading); }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 0.3rem; }
+        .footer-social { display: flex; gap: 0.9rem; margin-top: auto; align-self: flex-start; }
+        .footer-social-link {
+            width: 2.4rem; height: 2.4rem; background-color: rgba(200,122,59,0.15);
+            border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+            color: var(--accent); transition: 0.2s; text-decoration: none;
+            border: 1px solid var(--accent);
+            font-size: 0.9rem;
+        }
+        .footer-social-link:hover { background-color: var(--accent); color: #0A0A0A; transform: translateY(-3px); }
+        [data-theme="light"] .footer-social-link:hover { color: #FFFFFF; }
+        .footer-heading { font-size: 1.05rem; font-weight: 700; margin-bottom: 1.4rem; color: var(--accent); line-height: 1; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.7rem; }
+        .footer-links a { color: var(--footer-text); transition: 0.2s; display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+        .footer-newsletter p { color: var(--footer-text); font-size: 0.9rem; margin-bottom: 1rem; }
+        .footer-input { width: 100%; padding: 0.8rem 1rem; border-radius: 9999px; background: var(--bg-secondary); border: 1px solid var(--accent); color: var(--text-main); font-size: 0.9rem; }
+        .footer-input::placeholder { color: var(--footer-text); }
+        .footer-btn { width: 100%; background-color: var(--accent); color: #0A0A0A; padding: 0.8rem; border-radius: 9999px; font-weight: bold; border: none; cursor: pointer; margin-top: 0.5rem; transition: 0.2s; font-size: 0.9rem; }
+        [data-theme="light"] .footer-btn { color: #FFFFFF; }
+        .footer-btn:hover { background-color: #E5A05F; transform: translateY(-2px); color: #0A0A0A; }
+        [data-theme="light"] .footer-btn:hover { color: #FFFFFF; }
+        .footer-bottom { border-top: 1px solid rgba(200,122,59,0.3); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+        .copyright { color: var(--footer-text); font-size: 0.85rem; }
+        .footer-bottom-links { display: flex; gap: 1.8rem; }
+        .footer-bottom-links a { color: var(--footer-text); font-size: 0.85rem; text-decoration: none; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+
+        #scroll-top {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem;
+            background-color: var(--accent); color: #0A0A0A; border-radius: 50%;
+            border: none; cursor: pointer; z-index: 100; display: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        [data-theme="light"] #scroll-top { color: #FFFFFF; }
+        #scroll-top:hover { background-color: #E5A05F; transform: translateY(-3px); color: #0A0A0A; }
+        [data-theme="light"] #scroll-top:hover { color: #FFFFFF; }
+    
+        /* ══════════════════════════════════════════
+           PAGE HERO
+           ══════════════════════════════════════════ */
+        .page-hero {
+            position: relative;
+            padding: 9rem 0 5rem;
+            background:
+                linear-gradient(135deg, rgba(17,17,17,0.92) 0%, rgba(17,17,17,0.7) 60%, rgba(200,122,59,0.25) 100%);
+            text-align: center;
+            border-bottom: 1px solid var(--border-dim);
+        }
+        [data-theme="light"] .page-hero {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F3F4F6 100%);
+            background-blend-mode: overlay;
+        }
+        [data-theme="light"] .page-hero h1,
+        [data-theme="light"] .page-hero p { color: #111; }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.6;
+        }
+        .page-hero-inner { position: relative; z-index: 2; }
+        .page-hero .crumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(0,0,0,0.5);
+            padding: 0.4rem 1.1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(6px);
+            font-weight: 700;
+        }
+        [data-theme="light"] .page-hero .crumb { background: var(--accent-soft); }
+        .page-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .page-hero h1 span {
+            background: linear-gradient(135deg, var(--accent), #F0B27A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-hero p {
+            color: rgba(255,255,255,0.85);
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.02rem;
+        }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar-container" id="navbar">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+            <div class="logo-word">
+                <div class="logo-text">IRON<span>&OAK</span></div>
+                <span class="logo-tagline">grooming · craft · character</span>
+            </div>
+        </a>
+
+        <div class="desktop-nav">
+            <div class="dropdown">
+                <div class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i></div>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home-2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="grooming.html" class="nav-link active">Grooming</a>
+            <a href="blade-and-bone.html" class="nav-link">Blade & Bone</a>
+            <a href="rituals.html" class="nav-link">Rituals</a>
+            <a href="beard-care.html" class="nav-link">Beard Care</a>
+            <a href="lookbook.html" class="nav-link">Lookbook</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle" aria-label="Toggle direction"><i class="fas fa-exchange-alt"></i></button>
+            <a href="contact.html" class="cta-btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ═══════════════ MOBILE MENU ═══════════════ -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+            <div class="logo-word">
+                <div class="logo-text">IRON<span>&OAK</span></div>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-dropdown')">
+                Home <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-dropdown" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a>
+                <a href="home-2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-nav-item">About Us <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="grooming.html" class="mobile-nav-item active">Grooming <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="blade-and-bone.html" class="mobile-nav-item">Blade & Bone <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="rituals.html" class="mobile-nav-item">Rituals <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="beard-care.html" class="mobile-nav-item">Beard Care <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="lookbook.html" class="mobile-nav-item">Lookbook <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="contact.html" class="mobile-nav-item">Contact <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+
+        <div class="mobile-action-buttons">
+            <a href="contact.html" class="mobile-action-btn primary">
+                <span><i class="fas fa-calendar-check"></i> Book Appointment</span>
+                <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+            </a>
+            <button class="mobile-action-btn" id="mobile-rtl-toggle">
+                <span><i class="fas fa-exchange-alt"></i> Switch Direction</span>
+                <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+            </button>
+            <button class="mobile-action-btn" id="mobile-theme-toggle">
+                <span><i class="fas fa-circle-half-stroke"></i> Toggle Theme</span>
+                <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ HERO — Fullscreen slideshow ═══════════════ -->
+<section class="page-hero">
+    <div class="container page-hero-inner">
+        <span class="crumb"><i class="fas fa-star"></i> Grooming · Est. 2018</span>
+        <h1>Every cut has a <span>reason behind it</span></h1>
+        <p>Not a menu of options — a set of decisions made for your hair, your face, and how you actually live. We talk first, cut second.</p>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 1: SERVICE CATEGORIES ═══════════════ -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="sec-head">
+            <span class="eyebrow">In-Studio Services</span>
+            <h2>Pick Your Chair</h2>
+            <p>Four categories, one standard. Every service starts with a consultation and ends with a hot towel finish.</p>
+        </div>
+
+        <div class="svc-tabs" role="tablist">
+            <button class="svc-tab active" data-tab="haircut"><i class="fas fa-cut"></i> Haircuts</button>
+            <button class="svc-tab" data-tab="shave"><i class="fas fa-fire"></i> Shaves</button>
+            <button class="svc-tab" data-tab="beard"><i class="fas fa-user-tie"></i> Beard</button>
+            <button class="svc-tab" data-tab="package"><i class="fas fa-gift"></i> Packages</button>
+        </div>
+
+        <!-- Haircuts -->
+        <div class="svc-panel active" data-tab="haircut">
+            <div class="svc-panel-grid">
+                <div class="svc-panel-img">
+                    <img src="asserts/grm4.avif" alt="Haircut">
+                    <span class="svc-panel-badge">Most Booked</span>
+                    <div class="svc-panel-price">
+                        <div class="num">$35</div>
+                        <div class="lbl">Starting at</div>
+                    </div>
+                </div>
+                <ul class="svc-list">
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Signature Haircut</div>
+                            <div class="svc-item-desc">Consultation, wash, precision cut, and style finish.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$35–$65</div>
+                                <div class="svc-item-time">45 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Skin Fade</div>
+                            <div class="svc-item-desc">Razor-sharp blend from skin to length. Clean, tight, and precise.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$45–$70</div>
+                                <div class="svc-item-time">50 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Buzz Cut + Line-Up</div>
+                            <div class="svc-item-desc">One length, sharp edges, zero fuss. The cleanest quick cut we do.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$25–$40</div>
+                                <div class="svc-item-time">25 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Kids Cut (Under 12)</div>
+                            <div class="svc-item-desc">Patient, careful, no rush. Chair-side stool and a juice box on us.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$20–$30</div>
+                                <div class="svc-item-time">30 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Hair Consultation</div>
+                            <div class="svc-item-desc">Face shape, hair type, styling options. Free and no pressure.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">Free</div>
+                                <div class="svc-item-time">15 min</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Shaves -->
+        <div class="svc-panel" data-tab="shave">
+            <div class="svc-panel-grid">
+                <div class="svc-panel-img">
+                    <img src="asserts/grm5.avif" alt="Hot towel shave">
+                    <span class="svc-panel-badge">Traditional</span>
+                    <div class="svc-panel-price">
+                        <div class="num">$45</div>
+                        <div class="lbl">Starting at</div>
+                    </div>
+                </div>
+                <ul class="svc-list">
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Hot Towel Shave</div>
+                            <div class="svc-item-desc">Straight razor, pre-shave oil, hot towels, and a soothing balm finish.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$45–$75</div>
+                                <div class="svc-item-time">40 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Head Shave</div>
+                            <div class="svc-item-desc">Full scalp shave with hot towel prep and post-shave moisturizer.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$40–$55</div>
+                                <div class="svc-item-time">35 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Line-Up Only</div>
+                            <div class="svc-item-desc">Quick razor cleanup of the hairline and neck. In and out in 15 minutes.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$15–$25</div>
+                                <div class="svc-item-time">15 min</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Beard -->
+        <div class="svc-panel" data-tab="beard">
+            <div class="svc-panel-grid">
+                <div class="svc-panel-img">
+                    <img src="asserts/grm6.avif" alt="Beard sculpt">
+                    <span class="svc-panel-badge">Signature</span>
+                    <div class="svc-panel-price">
+                        <div class="num">$30</div>
+                        <div class="lbl">Starting at</div>
+                    </div>
+                </div>
+                <ul class="svc-list">
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Beard Sculpting</div>
+                            <div class="svc-item-desc">Cheek line, neckline, fade work, and beard oil finish.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$30–$55</div>
+                                <div class="svc-item-time">30 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Full Beard Sculpt</div>
+                            <div class="svc-item-desc">Razor-lined edges, shaped cheeks, hot towel finish, oil included.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$45–$65</div>
+                                <div class="svc-item-time">45 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Hot Towel Beard Treatment</div>
+                            <div class="svc-item-desc">Steam, exfoliate, oil massage, straight-razor edge-up.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$45–$70</div>
+                                <div class="svc-item-time">40 min</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Packages -->
+        <div class="svc-panel" data-tab="package">
+            <div class="svc-panel-grid">
+                <div class="svc-panel-img">
+                    <img src="asserts/grm7.avif" alt="Groom package">
+                    <span class="svc-panel-badge">Best Value</span>
+                    <div class="svc-panel-price">
+                        <div class="num">$85</div>
+                        <div class="lbl">Starting at</div>
+                    </div>
+                </div>
+                <ul class="svc-list">
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Full Groom Package</div>
+                            <div class="svc-item-desc">Signature haircut + beard sculpt + hot towel finish. The whole reset.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$85–$120</div>
+                                <div class="svc-item-time">75 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Groom's Package</div>
+                            <div class="svc-item-desc">Wedding day prep for the groom. Cut, sculpt, shave, styling. Party bookings welcome.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$120–$180</div>
+                                <div class="svc-item-time">90 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">Father & Son Cut</div>
+                            <div class="svc-item-desc">Two chairs, side by side. Same quality, half the hassle.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$60–$90</div>
+                                <div class="svc-item-time">60 min</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="svc-item">
+                        <div>
+                            <div class="svc-item-name">First-Time Kit</div>
+                            <div class="svc-item-desc">Full sculpt + travel-sized oil & balm set to take home.</div>
+                        </div>
+                        <div class="svc-item-right">
+                            <div>
+                                <div class="svc-item-price">$65</div>
+                                <div class="svc-item-time">45 min</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 2: PROCESS — horizontal scroll ═══════════════ -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="sec-head">
+            <span class="eyebrow">The Process</span>
+            <h2>How a Cut Actually Happens</h2>
+            <p>Six steps, forty-five minutes, no surprises. This is what you're paying for.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="process-scroller">
+            <article class="process-card">
+                <span class="process-num">01</span>
+                <div class="process-icon"><i class="fas fa-comments"></i></div>
+                <h3>Consultation</h3>
+                <p>We talk first. Hair type, lifestyle, how much time you want to spend styling — all of it matters before the first snip.</p>
+                <span class="process-time"><i class="fas fa-clock"></i> 5 min</span>
+            </article>
+            <article class="process-card">
+                <span class="process-num">02</span>
+                <div class="process-icon"><i class="fas fa-shower"></i></div>
+                <h3>Wash & Prep</h3>
+                <p>Clean hair cuts better. Warm wash, scalp massage, and a towel wrap while we set up.</p>
+                <span class="process-time"><i class="fas fa-clock"></i> 8 min</span>
+            </article>
+            <article class="process-card">
+                <span class="process-num">03</span>
+                <div class="process-icon"><i class="fas fa-cut"></i></div>
+                <h3>The Cut</h3>
+                <p>Scissor work, clipper work, or both. Built section by section so the shape lands exactly where it should.</p>
+                <span class="process-time"><i class="fas fa-clock"></i> 20 min</span>
+            </article>
+            <article class="process-card">
+                <span class="process-num">04</span>
+                <div class="process-icon"><i class="fas fa-brush"></i></div>
+                <h3>Detailing</h3>
+                <p>Edges, line-up, and neckline. This is where a good cut becomes a great one.</p>
+                <span class="process-time"><i class="fas fa-clock"></i> 7 min</span>
+            </article>
+            <article class="process-card">
+                <span class="process-num">05</span>
+                <div class="process-icon"><i class="fas fa-spa"></i></div>
+                <h3>Hot Towel Finish</h3>
+                <p>Hot towel on the neck, a touch of balm, and a quick once-over with the mirror.</p>
+                <span class="process-time"><i class="fas fa-clock"></i> 3 min</span>
+            </article>
+            <article class="process-card">
+                <span class="process-num">06</span>
+                <div class="process-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3>Styling Tips</h3>
+                <p>We show you how to recreate it at home. Products, amounts, direction — no gatekeeping.</p>
+                <span class="process-time"><i class="fas fa-clock"></i> 2 min</span>
+            </article>
+        </div>
+        <div class="scroll-hint">
+            <span>Drag or scroll</span>
+            <i class="fas fa-arrow-right"></i>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 3: PRICE MENU (tabbed) ═══════════════ -->
+<section class="section">
+    <div class="container">
+        <div class="sec-head">
+            <span class="eyebrow">Price Menu</span>
+            <h2>Every Price, Up Front</h2>
+            <p>No hidden charges, no surprise add-ons. What you see is what you pay.</p>
+        </div>
+
+        <div class="menu-wrapper">
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-menu="haircut">Haircuts</button>
+                <button class="menu-tab" data-menu="shave">Shaves</button>
+                <button class="menu-tab" data-menu="beard">Beard</button>
+                <button class="menu-tab" data-menu="extras">Extras</button>
+            </div>
+
+            <!-- Haircuts -->
+            <div class="menu-panel active" data-menu="haircut">
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Signature Haircut <span class="menu-badge">Popular</span></div>
+                        <div class="desc">Consultation, wash, cut, and style finish.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$35–$65</div>
+                        <div class="time">45 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Skin Fade</div>
+                        <div class="desc">Razor-sharp blend from skin to length.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$45–$70</div>
+                        <div class="time">50 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Buzz Cut + Line-Up</div>
+                        <div class="desc">One length, sharp edges, quick turnaround.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$25–$40</div>
+                        <div class="time">25 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Kids Cut (Under 12)</div>
+                        <div class="desc">Patient, careful, no rush.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$20–$30</div>
+                        <div class="time">30 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Hair Consultation</div>
+                        <div class="desc">Face shape, hair type, styling options.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">Free</div>
+                        <div class="time">15 min</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shaves -->
+            <div class="menu-panel" data-menu="shave">
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Hot Towel Shave <span class="menu-badge">Classic</span></div>
+                        <div class="desc">Straight razor, pre-shave oil, hot towels, and balm finish.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$45–$75</div>
+                        <div class="time">40 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Head Shave</div>
+                        <div class="desc">Full scalp shave with hot towel prep.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$40–$55</div>
+                        <div class="time">35 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Line-Up Only</div>
+                        <div class="desc">Quick cleanup of hairline and neck.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$15–$25</div>
+                        <div class="time">15 min</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beard -->
+            <div class="menu-panel" data-menu="beard">
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Beard Sculpting</div>
+                        <div class="desc">Cheek line, neckline, fade work, oil finish.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$30–$55</div>
+                        <div class="time">30 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Full Beard Sculpt <span class="menu-badge">Signature</span></div>
+                        <div class="desc">Razor-lined edges, shaped cheeks, hot towel, oil included.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$45–$65</div>
+                        <div class="time">45 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Hot Towel Beard Treatment</div>
+                        <div class="desc">Steam, exfoliate, oil massage, straight-razor edge-up.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$45–$70</div>
+                        <div class="time">40 min</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extras -->
+            <div class="menu-panel" data-menu="extras">
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Hair Tattoo</div>
+                        <div class="desc">Custom razor detail in the fade. Design included.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$15–$35</div>
+                        <div class="time">15 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Scalp Treatment</div>
+                        <div class="desc">Exfoliation, massage, and moisturizing treatment.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$25</div>
+                        <div class="time">20 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Grey Blending</div>
+                        <div class="desc">Natural-looking grey reduction. Subtle, not obvious.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">$35</div>
+                        <div class="time">25 min</div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-left">
+                        <div class="name">Beard Oil Sample</div>
+                        <div class="desc">Take home a travel-size sample of our Oak Beard Oil.</div>
+                    </div>
+                    <div class="menu-item-right">
+                        <div class="price">Free</div>
+                        <div class="time">First visit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 4: ADD-ONS & EXTRAS ═══════════════ -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="sec-head">
+            <span class="eyebrow">Add-Ons</span>
+            <h2>Small Extras, Big Difference</h2>
+            <p>Tack any of these onto your appointment. Most take 15 minutes or less — no need to book a separate visit.</p>
+        </div>
+
+        <div class="extras">
+            <article class="extra">
+                <div class="extra-head">
+                    <div class="extra-icon"><i class="fas fa-fire-flame-curved"></i></div>
+                    <span class="extra-time">10 min</span>
+                </div>
+                <h3>Hot Towel Neck Finish</h3>
+                <p>A steaming towel on the neck and a cooling balm. The step that turns a cut into a proper reset.</p>
+                <div class="extra-foot">
+                    <span class="extra-price">+$8</span>
+                    <span class="extra-note">Most popular add-on</span>
+                </div>
+            </article>
+
+            <article class="extra">
+                <div class="extra-head">
+                    <div class="extra-icon"><i class="far fa-eye"></i></div>
+                    <span class="extra-time">5 min</span>
+                </div>
+                <h3>Eyebrow Clean-Up</h3>
+                <p>Quick razor tidy of stray hairs above the brow. Subtle, no shaping, no drama.</p>
+                <div class="extra-foot">
+                    <span class="extra-price">+$6</span>
+                    <span class="extra-note">The overlooked detail</span>
+                </div>
+            </article>
+
+            <article class="extra">
+                <div class="extra-head">
+                    <div class="extra-icon"><i class="fas fa-seedling"></i></div>
+                    <span class="extra-time">15 min</span>
+                </div>
+                <h3>Scalp Treatment</h3>
+                <p>Exfoliating scrub, scalp massage, and a moisturizing finish. Good for dry scalps and post-summer.</p>
+                <div class="extra-foot">
+                    <span class="extra-price">+$25</span>
+                    <span class="extra-note">Best in winter</span>
+                </div>
+            </article>
+
+            <article class="extra">
+                <div class="extra-head">
+                    <div class="extra-icon"><i class="fas fa-bolt-lightning"></i></div>
+                    <span class="extra-time">15 min</span>
+                </div>
+                <h3>Razor Hair Detail</h3>
+                <p>A custom line, part, or simple pattern razor-cut into the fade. Design consultation included.</p>
+                <div class="extra-foot">
+                    <span class="extra-price">+$15</span>
+                    <span class="extra-note">Freehand only</span>
+                </div>
+            </article>
+
+            <article class="extra">
+                <div class="extra-head">
+                    <div class="extra-icon"><i class="fas fa-palette"></i></div>
+                    <span class="extra-time">25 min</span>
+                </div>
+                <h3>Grey Blending</h3>
+                <p>Natural-looking reduction of scattered grey. Not a dye — it fades out over 4–6 weeks.</p>
+                <div class="extra-foot">
+                    <span class="extra-price">+$35</span>
+                    <span class="extra-note">Subtle by design</span>
+                </div>
+            </article>
+
+            <article class="extra">
+                <div class="extra-head">
+                    <div class="extra-icon"><i class="fas fa-droplet"></i></div>
+                    <span class="extra-time">2 min</span>
+                </div>
+                <h3>Beard Oil Sample</h3>
+                <p>Travel-size bottle of our Oak Beard Oil to take home. Free with every service, first visit or not.</p>
+                <div class="extra-foot">
+                    <span class="extra-price">Free</span>
+                    <span class="extra-note">On the house</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<!-- ═══════════════ SECTION 5: MEMBERSHIP TIERS ═══════════════ -->
+<section class="section" id="tiers">
+    <div class="container">
+        <div class="sec-head">
+            <span class="eyebrow">Oak Club</span>
+            <h2>Membership Tiers</h2>
+            <p>Save on every visit, skip the line, and get priority booking. Cancel any time.</p>
+        </div>
+
+        <div class="tiers">
+            <article class="tier">
+                <div class="tier-head">
+                    <h3>Casual</h3>
+                    <p class="tier-sub">For the occasional visit</p>
+                    <div class="tier-price">$29<small>per month</small></div>
+                </div>
+                <ul class="tier-features">
+                    <li><i class="fas fa-check"></i> One Signature Haircut per month</li>
+                    <li><i class="fas fa-check"></i> 10% off additional services</li>
+                    <li><i class="fas fa-check"></i> Free beard oil samples</li>
+                    <li class="muted"><i class="fas fa-times"></i> Priority booking</li>
+                    <li class="muted"><i class="fas fa-times"></i> Free birthday cut</li>
+                </ul>
+                <a href="contact.html" class="tier-btn">Join Casual</a>
+            </article>
+
+            <article class="tier featured">
+                <span class="tier-tag">Most Popular</span>
+                <div class="tier-head">
+                    <h3>Regular</h3>
+                    <p class="tier-sub">For the twice-a-month guy</p>
+                    <div class="tier-price">$49<small>per month</small></div>
+                </div>
+                <ul class="tier-features">
+                    <li><i class="fas fa-check"></i> Two Signature Haircuts per month</li>
+                    <li><i class="fas fa-check"></i> One free beard sculpt</li>
+                    <li><i class="fas fa-check"></i> 15% off everything else</li>
+                    <li><i class="fas fa-check"></i> Priority booking</li>
+                    <li><i class="fas fa-check"></i> Free birthday cut</li>
+                </ul>
+                <a href="contact.html" class="tier-btn">Join Regular</a>
+            </article>
+
+            <article class="tier">
+                <div class="tier-head">
+                    <h3>Oak</h3>
+                    <p class="tier-sub">The full works</p>
+                    <div class="tier-price">$89<small>per month</small></div>
+                </div>
+                <ul class="tier-features">
+                    <li><i class="fas fa-check"></i> Unlimited Signature Haircuts</li>
+                    <li><i class="fas fa-check"></i> Unlimited beard sculpts</li>
+                    <li><i class="fas fa-check"></i> One hot towel shave per month</li>
+                    <li><i class="fas fa-check"></i> 20% off everything else</li>
+                    <li><i class="fas fa-check"></i> Priority booking + free birthday cut</li>
+                </ul>
+                <a href="contact.html" class="tier-btn">Join Oak</a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 6: LUXE CTA ═══════════════ -->
+<section class="section section-alt" style="padding-bottom: 6rem;">
+    <div class="container">
+        <div class="luxe-cta">
+            <div class="luxe-cta-inner">
+                <div class="luxe-cta-ornament">✦</div>
+                <h2>Ready to sit down<br>and <em>look sharp?</em></h2>
+                <p>Book a chair at Iron & Oak. First-time clients get a complimentary consultation and a free beard oil sample to take home.</p>
+                <div class="luxe-cta-actions">
+                    <a href="contact.html" class="btn-primary"><i class="fas fa-calendar-check"></i> Book a Chair</a>
+                    <a href="contact.html" class="btn-outline">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+                    <div class="logo-word">
+                        <div class="logo-text">IRON<span>&OAK</span></div>
+                        <span class="logo-tagline">grooming · craft · character</span>
+                    </div>
+                </a>
+                <p class="footer-tagline">Open 7 days · 9am–8pm. Men's grooming studio & barbershop in the heart of downtown.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="grooming.html"><i class="fas fa-chevron-right"></i> Grooming</a></li>
+                    <li><a href="blade-and-bone.html"><i class="fas fa-chevron-right"></i> Blade & Bone </a></li>
+                    <li><a href="rituals.html"><i class="fas fa-chevron-right"></i> Rituals</a></li>
+
+                    <li><a href="beard-care.html"><i class="fas fa-chevron-right"></i> Beard Care</a></li>
+                    <li><a href="lookbook.html"><i class="fas fa-chevron-right"></i> Lookbook</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Book</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Stay Connected</h3>
+                <p>Subscribe for offers & new service drops.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Your email address" class="footer-input">
+                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Iron & Oak – Men's Grooming Studio. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    function toggleMobileDropdown(id) {
+        const element = document.getElementById(id);
+        if (element) element.classList.toggle('active');
+    }
+
+    (function () {
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('desktop-theme-toggle');
+        const mobileTheme = document.getElementById('mobile-theme-toggle');
+        let theme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', theme);
+
+        const savedDir = localStorage.getItem('direction');
+        if (savedDir) html.setAttribute('dir', savedDir);
+
+        function updateThemeIcons(t) {
+            const icon = document.querySelector('#desktop-theme-toggle i');
+            if (icon) icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        updateThemeIcons(theme);
+
+        function toggleThemeFunc() {
+            let cur = html.getAttribute('data-theme');
+            let nw = cur === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', nw);
+            localStorage.setItem('theme', nw);
+            updateThemeIcons(nw);
+        }
+        if (themeToggle) themeToggle.addEventListener('click', toggleThemeFunc);
+        if (mobileTheme) mobileTheme.addEventListener('click', toggleThemeFunc);
+
+        function toggleRtl() {
+            let dir = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', dir);
+            localStorage.setItem('direction', dir);
+        }
+        document.getElementById('desktop-rtl-toggle')?.addEventListener('click', toggleRtl);
+        document.getElementById('mobile-rtl-toggle')?.addEventListener('click', toggleRtl);
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if (menuBtn) menuBtn.onclick = () => mobileMenu.classList.add('active');
+        if (closeBtn) closeBtn.onclick = () => mobileMenu.classList.remove('active');
+        mobileMenu?.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        /* ══ Hero slideshow ══ */
+        const slides = document.querySelectorAll('.gr-slide');
+        const dots = document.querySelectorAll('.gr-dot');
+        let currentSlide = 0;
+        let slideTimer;
+
+        function goToSlide(index) {
+            slides.forEach((s, i) => s.classList.toggle('active', i === index));
+            dots.forEach((d, i) => d.classList.toggle('active', i === index));
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % slides.length);
+        }
+
+        function startSlideshow() {
+            clearInterval(slideTimer);
+            slideTimer = setInterval(nextSlide, 6000);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.slide));
+                startSlideshow();
+            });
+        });
+
+        if (slides.length > 1) startSlideshow();
+
+        /* ══ Service tabs ══ */
+        const svcTabs = document.querySelectorAll('.svc-tab');
+        const svcPanels = document.querySelectorAll('.svc-panel');
+        svcTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const t = tab.dataset.tab;
+                svcTabs.forEach(b => b.classList.toggle('active', b === tab));
+                svcPanels.forEach(p => p.classList.toggle('active', p.dataset.tab === t));
+            });
+        });
+
+        /* ══ Menu tabs ══ */
+        const menuTabs = document.querySelectorAll('.menu-tab');
+        const menuPanels = document.querySelectorAll('.menu-panel');
+        menuTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const t = tab.dataset.menu;
+                menuTabs.forEach(b => b.classList.toggle('active', b === tab));
+                menuPanels.forEach(p => p.classList.toggle('active', p.dataset.menu === t));
+            });
+        });
+
+        /* ══ Process scroller — drag to scroll ══ */
+        const scroller = document.querySelector('.process-scroller');
+        if (scroller) {
+            let isDown = false, startX, scrollLeft;
+            scroller.addEventListener('mousedown', (e) => {
+                isDown = true;
+                scroller.style.cursor = 'grabbing';
+                startX = e.pageX - scroller.offsetLeft;
+                scrollLeft = scroller.scrollLeft;
+            });
+            scroller.addEventListener('mouseleave', () => { isDown = false; scroller.style.cursor = ''; });
+            scroller.addEventListener('mouseup', () => { isDown = false; scroller.style.cursor = ''; });
+            scroller.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - scroller.offsetLeft;
+                scroller.scrollLeft = scrollLeft - (x - startX) * 1.6;
+            });
+        }
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+83:        .logo {
+84-            display: inline-flex;
+85-            align-items: center;
+86-            gap: 0.6rem;
+87-            text-decoration: none;
+88-            flex-shrink: 0;
+89-            transition: transform 0.2s ease;
+90-            line-height: 1;
+91-        }
+92-        .logo:hover { transform: translateY(-1px); }
+93-
+94-        .logo-mark {
+95-            position: relative;
+96-            width: 2.4rem;
+97-            height: 2.4rem;
+98-            display: flex;
+99-            align-items: center;
+100-            justify-content: center;
+101-            border-radius: 0.55rem;
+102-            background: linear-gradient(135deg, var(--accent) 0%, #8F5518 100%);
+103-            box-shadow: 0 4px 12px rgba(200, 122, 59, 0.3);
+--
+366:            .logo { gap: 0.5rem; }
+367-        }
+368-
+369-        /* ══════════════════════════════════════════
+370-           MOBILE MENU
+371-           ══════════════════════════════════════════ */
+372-        .mobile-menu {
+373-            position: fixed;
+374-            top: 0; left: 0;
+375-            width: 100%; height: 100%;
+376-            background-color: var(--bg-primary);
+377-            z-index: 9999;
+378-            overflow-y: auto;
+379-            transform: translateX(-100%);
+380-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+381-        }
+382-        [dir="rtl"] .mobile-menu { transform: translateX(100%); }
+383-        [dir="rtl"] .mobile-menu.active { transform: translateX(0); }
+384-        .mobile-menu.active { transform: translateX(0); }
+385-
+386-        .mobile-menu-header {
+--
+979:        .footer-brand .logo { margin-bottom: 1rem; }
+980-        .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 0.3rem; }
+981-        .footer-social { display: flex; gap: 0.9rem; margin-top: 1.2rem; }
+982-        .footer-social-link {
+983-            width: 2.4rem; height: 2.4rem; background-color: rgba(200,122,59,0.15);
+984-            border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+985-            color: var(--accent); transition: 0.2s; text-decoration: none;
+986-            border: 1px solid var(--accent);
+987-            font-size: 0.9rem;
+988-        }
+989-        .footer-social-link:hover { background-color: var(--accent); color: #0A0A0A; transform: translateY(-3px); }
+990-        [data-theme="light"] .footer-social-link:hover { color: #FFFFFF; }
+991-        .footer-heading { font-size: 1.05rem; font-weight: 700; margin-bottom: 1.4rem; color: var(--accent); line-height: 1; }
+992-        .footer-links { list-style: none; }
+993-        .footer-links li { margin-bottom: 0.7rem; }
+994-        .footer-links a { color: var(--footer-text); transition: 0.2s; display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font-size: 0.9rem; }
+995-        .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+996-        .footer-newsletter p { color: var(--footer-text); font-size: 0.9rem; margin-bottom: 1rem; }
+997-        .footer-input { width: 100%; padding: 0.8rem 1rem; border-radius: 9999px; background: var(--bg-secondary); border: 1px solid var(--accent); color: var(--text-main); font-size: 0.9rem; }
+998-        .footer-input::placeholder { color: var(--footer-text); }
+999-        .footer-btn { width: 100%; background-color: var(--accent); color: #0A0A0A; padding: 0.8rem; border-radius: 9999px; font-weight: bold; border: none; cursor: pointer; margin-top: 0.5rem; transition: 0.2s; font-size: 0.9rem; }

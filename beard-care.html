@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iron & Oak Beard Care – beard sculpting, oils, balms, hot towel treatments, and beard shape guides from master barbers.">
+    <title>Beard Care | Iron & Oak Men's Grooming Studio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C87A3B'%3E%3Ccircle cx='12' cy='12' r='4' fill='%23C87A3B'/%3E%3Cpath d='M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1' stroke='%23C87A3B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-black: #111111;
+            --text-white: #FFFFFF;
+            --accent: #C87A3B;
+            --accent-soft: rgba(200, 122, 59, 0.15);
+            --border-dim: rgba(200, 122, 59, 0.2);
+            --card-bg: #1A1A1A;
+            --heading-font: 'Playfair Display', serif;
+            --navbar-bg: rgba(17, 17, 17, 0.85);
+            --bg-primary: #111111;
+            --bg-secondary: #1A1A1A;
+            --text-main: #E0DEC8;
+            --text-heading: #FFFFFF;
+            --footer-text: #A9A48C;
+            --warm-dark: #171310;
+            --warm-mid: #221B15;
+        }
+
+        [data-theme="light"] {
+            --bg-black: #FFFFFF;
+            --text-white: #111111;
+            --accent: #C87A3B;
+            --accent-soft: rgba(200, 122, 59, 0.12);
+            --border-dim: rgba(0, 0, 0, 0.1);
+            --card-bg: #FFFFFF;
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F3F4F6;
+            --text-main: #333333;
+            --text-heading: #111111;
+            --footer-text: #666666;
+            --warm-dark: #FAF6F2;
+            --warm-mid: #F5EDE4;
+        }
+
+        html, body { overflow-x: hidden; width: 100%; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--text-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        p { font-weight: 500; }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .navbar-flex { flex-direction: row-reverse; }
+        [dir="rtl"] .footer-main,
+        [dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+        [dir="rtl"] .footer-links a:hover { transform: translateX(-5px); }
+        [dir="rtl"] .logo-word { align-items: flex-end; }
+
+        /* ══════════════════════════════════════════
+           SHARED LOGO
+           ══════════════════════════════════════════ */
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+            line-height: 1;
+        }
+        .logo:hover { transform: translateY(-1px); }
+
+        .logo-mark {
+            position: relative;
+            width: 2.4rem;
+            height: 2.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.55rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #8F5518 100%);
+            box-shadow: 0 4px 12px rgba(200, 122, 59, 0.3);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease;
+        }
+        .logo:hover .logo-mark::after { transform: translateX(100%); }
+        .logo-mark i {
+            color: #0A0A0A;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        [data-theme="light"] .logo-mark i { color: #FFFFFF; }
+
+        .logo-word { align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1;
+        }
+        .logo-text {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            color: var(--text-heading);
+            white-space: nowrap;
+            line-height: 1;
+        }
+        .logo-text span { color: var(--accent); }
+        .logo-tagline {
+            font-size: 0.5rem;
+            color: var(--footer-text);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 0.22rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        /* ══════════════════════════════════════════
+           NAVBAR
+           ══════════════════════════════════════════ */
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--navbar-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-dim);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        .navbar-container::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: -1px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.4;
+        }
+
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            height: 4rem;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .nav-link {
+            position: relative;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.55rem 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.25s ease;
+            white-space: nowrap;
+            line-height: 1;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0.1rem;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 55%; }
+        .nav-link.active { color: var(--accent); font-weight: 600; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.3rem);
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 12px;
+            min-width: 160px;
+            padding: 0.4rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.22s ease;
+            z-index: 1000;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        [dir="rtl"] .dropdown-menu { left: auto; right: 50%; transform: translateX(50%) translateY(8px); }
+        [dir="rtl"] .dropdown:hover .dropdown-menu { transform: translateX(50%) translateY(0); }
+        .dropdown-item {
+            display: block;
+            padding: 0.55rem 0.85rem;
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .dropdown-item:hover {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+        .dropdown-item.active {
+            color: var(--accent);
+            font-weight: 600;
+            background: var(--accent-soft);
+        }
+
+        .navbar-right-desktop {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .icon-btn {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-heading);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        .icon-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0A0A0A;
+            transform: rotate(-8deg) scale(1.05);
+        }
+        [data-theme="light"] .icon-btn:hover { color: #FFFFFF; }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 9999px;
+            background: var(--accent);
+            color: #0A0A0A;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 14px rgba(200, 122, 59, 0.25);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        [data-theme="light"] .cta-btn { color: #FFFFFF; }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 122, 59, 0.35);
+        }
+        .cta-btn i { font-size: 0.72rem; }
+
+        .mobile-menu-btn {
+            display: none;
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 0.55rem;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .mobile-menu-btn:hover { background: var(--accent-soft); border-color: var(--accent); }
+        .mobile-menu-btn span {
+            position: absolute;
+            left: 50%;
+            width: 1.05rem;
+            height: 2px;
+            background: var(--text-heading);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: all 0.25s ease;
+        }
+        .mobile-menu-btn span:nth-child(1) { top: 0.75rem; }
+        .mobile-menu-btn span:nth-child(2) { top: 50%; transform: translate(-50%, -50%); }
+        .mobile-menu-btn span:nth-child(3) { bottom: 0.75rem; }
+        .mobile-menu-btn:hover span { background: var(--accent); }
+
+        @media (min-width: 1200px) {
+            .desktop-nav { display: flex; }
+            .navbar-right-desktop { display: flex; }
+            .mobile-menu-btn { display: none; }
+        }
+        @media (max-width: 1199px) {
+            .desktop-nav { display: none; }
+            .navbar-right-desktop { display: none; }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 1.1rem; }
+            .navbar-flex { height: 3.6rem; gap: 0.8rem; }
+            .logo-text { font-size: 1.05rem; }
+            .logo-tagline { display: none; }
+            .logo-mark { width: 2.2rem; height: 2.2rem; }
+            .logo-mark i { font-size: 0.9rem; }
+            .logo { gap: 0.5rem; }
+        }
+
+        /* ══════════════════════════════════════════
+           MOBILE MENU
+           ══════════════════════════════════════════ */
+        .mobile-menu {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: var(--bg-primary);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        [dir="rtl"] .mobile-menu { transform: translateX(100%); }
+        [dir="rtl"] .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu.active { transform: translateX(0); }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-dim);
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            z-index: 1;
+            height: 4rem;
+        }
+        .mobile-menu-close {
+            background: none;
+            border: 1px solid var(--border-dim);
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 0.55rem;
+            font-size: 1rem;
+            color: var(--text-heading);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .mobile-menu-close:hover { background: var(--accent); color: #0A0A0A; border-color: var(--accent); }
+        [data-theme="light"] .mobile-menu-close:hover { color: #FFFFFF; }
+
+        .mobile-menu-items {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.22s ease;
+        }
+        .mobile-nav-item:hover,
+        .mobile-nav-item.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-color: var(--border-dim);
+        }
+
+        .mobile-dropdown { width: 100%; }
+        .mobile-dropdown-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            font-weight: 500;
+            background: none;
+            border: 1px solid transparent;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.22s ease;
+        }
+        .mobile-dropdown-btn:hover,
+        .mobile-dropdown-btn.active {
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-color: var(--border-dim);
+        }
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-dropdown-content.active { max-height: 300px; }
+        .mobile-dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem 0.75rem 1.8rem;
+            color: var(--footer-text);
+            text-decoration: none;
+            border-radius: 9px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        [dir="rtl"] .mobile-dropdown-content a { padding: 0.75rem 1.8rem 0.75rem 1rem; }
+        .mobile-dropdown-content a.active { color: var(--accent); font-weight: 600; }
+        .mobile-dropdown-content a:hover { color: var(--accent); background: var(--accent-soft); }
+
+        .mobile-action-buttons {
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-dim);
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .mobile-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: none;
+            border: 1px solid var(--border-dim);
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.22s ease;
+        }
+        .mobile-action-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+        .mobile-action-btn.primary {
+            background: var(--accent);
+            color: #0A0A0A;
+            border-color: var(--accent);
+        }
+        [data-theme="light"] .mobile-action-btn.primary { color: #FFFFFF; }
+        .mobile-action-btn.primary:hover { background: #E5A05F; color: #0A0A0A; }
+        [data-theme="light"] .mobile-action-btn.primary:hover { color: #FFFFFF; }
+
+        /* ══════════════════════════════════════════
+           SHARED BUTTONS
+           ══════════════════════════════════════════ */
+        .btn-primary {
+            background-color: var(--accent); color: #0A0A0A;
+            padding: 0.9rem 2rem; border-radius: 9999px;
+            font-weight: 700; display: inline-flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; transition: 0.2s; border: none; cursor: pointer;
+            font-size: 0.95rem; font-family: 'Inter', sans-serif;
+        }
+        [data-theme="light"] .btn-primary { color: #FFFFFF; }
+        .btn-primary:hover { background-color: #E5A05F; transform: translateY(-3px); color: #0A0A0A; }
+        [data-theme="light"] .btn-primary:hover { color: #FFFFFF; }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--accent); color: var(--accent);
+            padding: 0.9rem 2rem; border-radius: 9999px;
+            font-weight: 600; display: inline-flex; align-items: center; gap: 0.6rem;
+            text-decoration: none; transition: 0.2s; cursor: pointer;
+            font-size: 0.95rem; font-family: 'Inter', sans-serif;
+        }
+        .btn-outline:hover { background: var(--accent); color: #0A0A0A; transform: translateY(-3px); }
+        [data-theme="light"] .btn-outline:hover { color: #FFFFFF; }
+
+        /* ══════════════════════════════════════════
+           BEARD HERO — different: warm apothecary asymmetric
+           ══════════════════════════════════════════ */
+        .bd-hero {
+            position: relative;
+            padding: 9rem 0 5rem;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(200,122,59,0.18) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(200,122,59,0.1) 0%, transparent 45%),
+                var(--warm-dark);
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-dim);
+        }
+        .bd-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 1px 1px, var(--border-dim) 1px, transparent 0);
+            background-size: 32px 32px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .bd-hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        @media (max-width: 900px) {
+            .bd-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
+
+        .bd-hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.4rem 1rem 0.4rem 0.5rem;
+            border-radius: 40px;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-dim);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        .bd-hero-eyebrow span.dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(200,122,59,0.2);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(200,122,59,0.2); }
+            50% { box-shadow: 0 0 0 8px rgba(200,122,59,0.05); }
+        }
+
+        .bd-hero h1 {
+            font-size: clamp(2.6rem, 5.5vw, 4.6rem);
+            line-height: 1.02;
+            margin-bottom: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        .bd-hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+            position: relative;
+            display: inline-block;
+        }
+        .bd-hero h1 em::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0.08em;
+            height: 0.18em;
+            background: var(--accent);
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        .bd-hero p {
+            font-size: 1.02rem;
+            color: var(--footer-text);
+            max-width: 480px;
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        .bd-hero-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.2rem;
+        }
+
+        .bd-hero-facts {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--border-dim);
+        }
+        .bd-fact-num {
+            font-family: var(--heading-font);
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+        .bd-fact-label {
+            font-size: 0.72rem;
+            color: var(--footer-text);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 600;
+            margin-top: 0.3rem;
+        }
+
+        /* Hero image stack — offset cards */
+        .bd-hero-visual {
+            position: relative;
+            height: 520px;
+        }
+        @media (max-width: 900px) {
+            .bd-hero-visual { height: 420px; }
+        }
+        @media (max-width: 480px) {
+            .bd-hero-visual { height: 340px; }
+        }
+
+        .bd-hero-img {
+            position: absolute;
+            border-radius: 1.2rem;
+            overflow: hidden;
+            border: 1px solid var(--border-dim);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+            transition: transform 0.4s ease;
+        }
+        .bd-hero-img img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .bd-hero-img.main {
+            top: 0; right: 0;
+            width: 78%;
+            height: 78%;
+            z-index: 1;
+        }
+        .bd-hero-img.sub {
+            bottom: 0; left: 0;
+            width: 55%;
+            height: 55%;
+            z-index: 2;
+            border-color: var(--accent);
+            box-shadow: 0 20px 45px rgba(200,122,59,0.25);
+        }
+        .bd-hero-img:hover { transform: translateY(-6px); }
+
+        .bd-hero-badge {
+            position: absolute;
+            top: 8%;
+            left: 2%;
+            background: var(--accent);
+            color: #0A0A0A;
+            padding: 0.7rem 1.1rem;
+            border-radius: 40px;
+            font-weight: 800;
+            font-size: 0.78rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 3;
+            box-shadow: 0 10px 24px rgba(200,122,59,0.4);
+            animation: float 5s ease-in-out infinite;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        [data-theme="light"] .bd-hero-badge { color: #FFFFFF; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION SHELL
+           ══════════════════════════════════════════ */
+        .section { padding: 5.5rem 0; }
+        .section-alt { background-color: var(--bg-secondary); }
+
+        .sec-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .sec-head-left { max-width: 640px; }
+        .sec-head .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        .sec-head .eyebrow::before {
+            content: '';
+            width: 28px; height: 1px;
+            background: var(--accent);
+        }
+        .sec-head h2 {
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+            line-height: 1.1;
+        }
+        .sec-head p {
+            color: var(--footer-text);
+            font-size: 0.95rem;
+            margin-top: 0.6rem;
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION 1: RITUAL TIMELINE (with sticky index)
+           ══════════════════════════════════════════ */
+        .ritual-wrap {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        @media (max-width: 900px) {
+            .ritual-wrap { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .ritual-side {
+            position: sticky;
+            top: 6rem;
+            padding: 1.6rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1.2rem;
+        }
+        @media (max-width: 900px) { .ritual-side { position: static; } }
+
+        .ritual-side .rs-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .ritual-side ul { list-style: none; }
+        .ritual-side li {
+            margin-bottom: 0.35rem;
+        }
+        .ritual-side li a {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.6rem 0.8rem;
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .ritual-side li a:hover,
+        .ritual-side li a.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+        .ritual-side li a span.num {
+            font-family: var(--heading-font);
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 800;
+            min-width: 1.2rem;
+        }
+
+        .ritual-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: relative;
+        }
+        .ritual-steps::before {
+            content: '';
+            position: absolute;
+            left: 2.05rem;
+            top: 1rem;
+            bottom: 1rem;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--border-dim) 15%, var(--border-dim) 85%, transparent);
+        }
+        [dir="rtl"] .ritual-steps::before { left: auto; right: 2.05rem; }
+
+        .step-card {
+            display: grid;
+            grid-template-columns: 4.5rem 1fr;
+            gap: 1.4rem;
+            align-items: flex-start;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1.2rem;
+            padding: 1.6rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        .step-card:hover {
+            transform: translateX(6px);
+            border-color: var(--accent);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.3);
+        }
+        [dir="rtl"] .step-card:hover { transform: translateX(-6px); }
+
+        .step-num {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-body h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .step-body h3 .step-chip {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--accent-soft);
+            border: 1px solid var(--border-dim);
+            color: var(--accent);
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-weight: 800;
+        }
+        .step-body p {
+            color: var(--footer-text);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        .step-body .step-tip {
+            margin-top: 0.8rem;
+            padding: 0.7rem 0.95rem;
+            border-radius: 0.7rem;
+            background: var(--accent-soft);
+            border-left: 3px solid var(--accent);
+            font-size: 0.82rem;
+            color: var(--text-main);
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+        [dir="rtl"] .step-body .step-tip { border-left: none; border-right: 3px solid var(--accent); }
+        .step-body .step-tip i { color: var(--accent); margin-top: 0.2rem; }
+
+        /* ══════════════════════════════════════════
+           SECTION 2: SERVICES GRID — bordered table style
+           ══════════════════════════════════════════ */
+        .svc-table {
+            border: 1px solid var(--border-dim);
+            border-radius: 1.3rem;
+            overflow: hidden;
+            background: var(--card-bg);
+        }
+        .svc-row {
+            display: grid;
+            grid-template-columns: 70px 1fr 200px 130px 40px;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.4rem 1.6rem;
+            border-bottom: 1px solid var(--border-dim);
+            transition: background 0.25s ease;
+            position: relative;
+        }
+        .svc-row:last-child { border-bottom: none; }
+        .svc-row:hover { background: var(--accent-soft); }
+        .svc-row::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: center;
+        }
+        .svc-row:hover::before { transform: scaleY(1); }
+        [dir="rtl"] .svc-row::before { left: auto; right: 0; }
+
+        .svc-icon {
+            width: 3rem; height: 3rem;
+            border-radius: 0.8rem;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 1.05rem;
+            border: 1px solid var(--border-dim);
+            transition: transform 0.3s ease;
+        }
+        .svc-row:hover .svc-icon { transform: scale(1.08) rotate(-6deg); }
+
+        .svc-name {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.2rem;
+        }
+        .svc-desc { font-size: 0.82rem; color: var(--footer-text); }
+
+        .svc-duration {
+            font-size: 0.8rem;
+            color: var(--footer-text);
+            display: flex; align-items: center; gap: 0.4rem;
+            font-weight: 600;
+        }
+        .svc-price {
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .svc-arrow {
+            width: 2rem; height: 2rem;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid var(--border-dim);
+            color: var(--text-main);
+            font-size: 0.7rem;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+        }
+        .svc-row:hover .svc-arrow {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #0A0A0A;
+            transform: translateX(4px);
+        }
+        [data-theme="light"] .svc-row:hover .svc-arrow { color: #FFFFFF; }
+        [dir="rtl"] .svc-row:hover .svc-arrow { transform: translateX(-4px) rotate(180deg); }
+        [dir="rtl"] .svc-arrow i { transform: rotate(180deg); }
+
+        @media (max-width: 900px) {
+            .svc-row {
+                grid-template-columns: 60px 1fr 100px 40px;
+                gap: 1rem;
+                padding: 1.2rem;
+            }
+            .svc-duration { display: none; }
+            .svc-price { font-size: 1rem; text-align: right; }
+        }
+        @media (max-width: 600px) {
+            .svc-row {
+                grid-template-columns: 50px 1fr 40px;
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+            .svc-price { display: none; }
+            .svc-icon { width: 2.5rem; height: 2.5rem; font-size: 0.9rem; }
+            .svc-name { font-size: 1rem; }
+        }
+
+       /* ══════════════════════════════════════════
+   SECTION 3: BEARD LENGTH GUIDE
+   ══════════════════════════════════════════ */
+.length-rail {
+    position: relative;
+    max-width: 880px;
+    margin: 0 auto;
+    padding-left: 5.5rem;
+}
+@media (max-width: 700px) {
+    .length-rail { padding-left: 3.5rem; }
+}
+
+.length-line {
+    position: absolute;
+    left: 2.75rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 2px;
+    background: linear-gradient(180deg, transparent 0%, var(--border-dim) 8%, var(--border-dim) 92%, transparent 100%);
+}
+@media (max-width: 700px) {
+    .length-line { left: 1.75rem; }
+}
+
+.length-stop {
+    position: relative;
+    padding: 1.6rem 0;
+}
+.length-stop:first-child { padding-top: 0; }
+.length-stop:last-child { padding-bottom: 0; }
+
+/* Marker with number + mm size */
+.length-marker {
+    position: absolute;
+    left: -5.5rem;
+    top: 1.8rem;
+    width: 3.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    z-index: 2;
+}
+@media (max-width: 700px) {
+    .length-marker { left: -3.5rem; width: 3rem; top: 1.4rem; }
+}
+.length-stop:first-child .length-marker { top: 0.2rem; }
+
+.length-num {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+@media (max-width: 700px) {
+    .length-num { width: 2.4rem; height: 2.4rem; font-size: 0.85rem; }
+}
+.length-stop:hover .length-num {
+    background: var(--accent);
+    color: #0A0A0A;
+    transform: scale(1.08);
+    box-shadow: 0 10px 24px rgba(200,122,59,0.35);
+}
+[data-theme="light"] .length-stop:hover .length-num { color: #FFFFFF; }
+
+.length-mm {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--footer-text);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+.length-stop:hover .length-mm { color: var(--accent); }
+
+/* Content card */
+.length-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-dim);
+    border-radius: 1.2rem;
+    padding: 1.6rem 1.8rem 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.length-stop:hover .length-card {
+    transform: translateX(8px);
+    border-color: var(--accent);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+}
+[dir="rtl"] .length-stop:hover .length-card { transform: translateX(-8px); }
+
+.length-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+[dir="rtl"] .length-card::before { left: auto; right: 0; }
+.length-stop:hover .length-card::before { opacity: 1; }
+
+.length-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.6rem;
+}
+.length-head h3 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin: 0;
+}
+.length-chip {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--accent-soft);
+    border: 1px solid var(--border-dim);
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 30px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.length-desc {
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 620px;
+}
+
+.length-needs {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-dim);
+}
+@media (max-width: 600px) {
+    .length-needs { grid-template-columns: 1fr; }
+}
+.length-needs li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+.length-needs li i {
+    color: var(--accent);
+    font-size: 0.7rem;
+    margin-top: 0.3rem;
+    flex-shrink: 0;
+}
+
+        /* ══════════════════════════════════════════
+           SECTION 4: PRODUCT SHELF (apothecary cards)
+           ══════════════════════════════════════════ */
+        .shelf {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+        .jar {
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1.2rem;
+            padding: 1.6rem 1.4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, border-color 0.3s ease, box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .jar:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 22px 45px rgba(0,0,0,0.3);
+        }
+        .jar::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .jar:hover::before { opacity: 1; }
+
+        .jar-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+        }
+        .jar-icon {
+            width: 3.2rem; height: 3.2rem;
+            border-radius: 0.9rem;
+            background: linear-gradient(135deg, var(--accent-soft), transparent);
+            border: 1px solid var(--border-dim);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent);
+            font-size: 1.15rem;
+            transition: transform 0.4s ease;
+        }
+        .jar:hover .jar-icon { transform: rotate(-12deg) scale(1.05); }
+        .jar-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.22rem 0.6rem;
+            border-radius: 30px;
+        }
+        .jar h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+        }
+        .jar .jar-vol {
+            font-size: 0.75rem;
+            color: var(--footer-text);
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        .jar p {
+            font-size: 0.82rem;
+            color: var(--footer-text);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .jar-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.9rem;
+            border-top: 1px dashed var(--border-dim);
+            margin-top: auto;
+        }
+        .jar-price {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .jar-cta {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease;
+        }
+        .jar-cta:hover { color: var(--accent); }
+
+        /* ══════════════════════════════════════════
+           SECTION 5: BAD BEARD HABITS — icon checklist
+           ══════════════════════════════════════════ */
+        .habits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+        .habit {
+            display: flex;
+            gap: 1rem;
+            padding: 1.4rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            border-radius: 1rem;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            align-items: flex-start;
+        }
+        .habit:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        .habit-mark {
+            width: 2.4rem; height: 2.4rem;
+            border-radius: 50%;
+            background: rgba(200, 80, 60, 0.15);
+            color: #E07A5F;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .habit.good .habit-mark {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+        .habit-body h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .habit-body p {
+            font-size: 0.82rem;
+            color: var(--footer-text);
+            line-height: 1.6;
+        }
+
+        /* ══════════════════════════════════════════
+           SECTION 6: CTA — vertical split with cut corner
+           ══════════════════════════════════════════ */
+        .bd-cta {
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            background: var(--accent);
+            color: #0A0A0A;
+            padding: 4.5rem 3rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 800px) {
+            .bd-cta { grid-template-columns: 1fr; padding: 3rem 1.8rem; gap: 2rem; }
+        }
+        .bd-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        [data-theme="light"] .bd-cta,
+        [data-theme="light"] .bd-cta h2,
+        [data-theme="light"] .bd-cta p { color: #0A0A0A; }
+
+        .bd-cta-left { position: relative; z-index: 2; }
+        .bd-cta .tag {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(10,10,10,0.65);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        .bd-cta h2 {
+            font-size: clamp(1.9rem, 4vw, 2.6rem);
+            color: #0A0A0A;
+            margin-bottom: 0.8rem;
+        }
+        .bd-cta p {
+            color: rgba(10,10,10,0.75);
+            font-size: 1rem;
+            margin-bottom: 1.6rem;
+            max-width: 460px;
+        }
+        .bd-cta-actions {
+            display: flex;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+        .bd-cta .btn-dark {
+            background: #0A0A0A;
+            color: #FFFFFF;
+            padding: 0.9rem 1.9rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            border: 1px solid #0A0A0A;
+        }
+        .bd-cta .btn-dark:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+        }
+        .bd-cta .btn-ghost {
+            background: transparent;
+            color: #0A0A0A;
+            padding: 0.9rem 1.9rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1.5px solid #0A0A0A;
+            transition: all 0.2s ease;
+        }
+        .bd-cta .btn-ghost:hover {
+            background: #0A0A0A;
+            color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        .bd-cta-right {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .bd-cta-stamp {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 2px dashed rgba(10,10,10,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: spinSlow 30s linear infinite;
+        }
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .bd-cta-stamp-inner {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            background: #0A0A0A;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--heading-font);
+            animation: spinSlow 30s linear infinite reverse;
+        }
+        .bd-cta-stamp-inner .num {
+            font-size: 2.4rem;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--accent);
+        }
+        .bd-cta-stamp-inner .lbl {
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 0.3rem;
+        }
+
+        /* ══════════════════════════════════════════
+           FOOTER
+           ══════════════════════════════════════════ */
+        .footer { background-color: var(--bg-black); color: var(--text-white); padding: 4rem 0 2rem; position: relative; }
+        .footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent); }
+        .footer-main { display: grid; gap: 3rem; grid-template-columns: 1fr; margin-bottom: 3rem; align-items: start; }
+        @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 2fr; } }
+        .footer .logo .logo-text { color: var(--text-heading); }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-tagline { color: var(--footer-text); font-size: 0.875rem; max-width: 300px; margin-top: 0.3rem; }
+        .footer-social { display: flex; gap: 0.9rem; margin-top: 1.2rem; }
+        .footer-social-link {
+            width: 2.4rem; height: 2.4rem; background-color: rgba(200,122,59,0.15);
+            border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+            color: var(--accent); transition: 0.2s; text-decoration: none;
+            border: 1px solid var(--accent);
+            font-size: 0.9rem;
+        }
+        .footer-social-link:hover { background-color: var(--accent); color: #0A0A0A; transform: translateY(-3px); }
+        [data-theme="light"] .footer-social-link:hover { color: #FFFFFF; }
+        .footer-heading { font-size: 1.05rem; font-weight: 700; margin-bottom: 1.4rem; color: var(--accent); line-height: 1; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.7rem; }
+        .footer-links a { color: var(--footer-text); transition: 0.2s; display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent); transform: translateX(5px); }
+        .footer-newsletter p { color: var(--footer-text); font-size: 0.9rem; margin-bottom: 1rem; }
+        .footer-input { width: 100%; padding: 0.8rem 1rem; border-radius: 9999px; background: var(--bg-secondary); border: 1px solid var(--accent); color: var(--text-main); font-size: 0.9rem; }
+        .footer-input::placeholder { color: var(--footer-text); }
+        .footer-btn { width: 100%; background-color: var(--accent); color: #0A0A0A; padding: 0.8rem; border-radius: 9999px; font-weight: bold; border: none; cursor: pointer; margin-top: 0.5rem; transition: 0.2s; font-size: 0.9rem; }
+        [data-theme="light"] .footer-btn { color: #FFFFFF; }
+        .footer-btn:hover { background-color: #E5A05F; transform: translateY(-2px); color: #0A0A0A; }
+        [data-theme="light"] .footer-btn:hover { color: #FFFFFF; }
+        .footer-bottom { border-top: 1px solid rgba(200,122,59,0.3); padding-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+        .copyright { color: var(--footer-text); font-size: 0.85rem; }
+        .footer-bottom-links { display: flex; gap: 1.8rem; }
+        .footer-bottom-links a { color: var(--footer-text); font-size: 0.85rem; text-decoration: none; }
+        .footer-bottom-links a:hover { color: var(--accent); }
+
+        #scroll-top {
+            position: fixed; bottom: 1.5rem; right: 1.5rem; width: 3rem; height: 3rem;
+            background-color: var(--accent); color: #0A0A0A; border-radius: 50%;
+            border: none; cursor: pointer; z-index: 100; display: none;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+        [data-theme="light"] #scroll-top { color: #FFFFFF; }
+        #scroll-top:hover { background-color: #E5A05F; transform: translateY(-3px); color: #0A0A0A; }
+        [data-theme="light"] #scroll-top:hover { color: #FFFFFF; }
+    
+        /* ══════════════════════════════════════════
+           PAGE HERO
+           ══════════════════════════════════════════ */
+        .page-hero {
+            position: relative;
+            padding: 9rem 0 5rem;
+            background:
+                linear-gradient(135deg, rgba(17,17,17,0.92) 0%, rgba(17,17,17,0.7) 60%, rgba(200,122,59,0.25) 100%);
+            text-align: center;
+            border-bottom: 1px solid var(--border-dim);
+        }
+        [data-theme="light"] .page-hero {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F3F4F6 100%);
+            background-blend-mode: overlay;
+        }
+        [data-theme="light"] .page-hero h1,
+        [data-theme="light"] .page-hero p { color: #111; }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.6;
+        }
+        .page-hero-inner { position: relative; z-index: 2; }
+        .page-hero .crumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(0,0,0,0.5);
+            padding: 0.4rem 1.1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            backdrop-filter: blur(6px);
+            font-weight: 700;
+        }
+        [data-theme="light"] .page-hero .crumb { background: var(--accent-soft); }
+        .page-hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.8rem);
+            color: #fff;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .page-hero h1 span {
+            background: linear-gradient(135deg, var(--accent), #F0B27A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-hero p {
+            color: rgba(255,255,255,0.85);
+            max-width: 640px;
+            margin: 0 auto;
+            font-size: 1.02rem;
+        }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar-container" id="navbar">
+    <div class="container navbar-flex">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+            <div class="logo-word">
+                <div class="logo-text">IRON<span>&OAK</span></div>
+                <span class="logo-tagline">grooming · craft · character</span>
+            </div>
+        </a>
+
+        <div class="desktop-nav">
+            <div class="dropdown">
+                <div class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i></div>
+                <div class="dropdown-menu">
+                    <a href="index.html" class="dropdown-item">Home 1</a>
+                    <a href="home-2.html" class="dropdown-item">Home 2</a>
+                </div>
+            </div>
+            <a href="about.html" class="nav-link">About Us</a>
+            <a href="grooming.html" class="nav-link">Grooming</a>
+            <a href="blade-and-bone.html" class="nav-link">Blade & Bone</a>
+            <a href="rituals.html" class="nav-link">Rituals</a>
+            <a href="beard-care.html" class="nav-link active">Beard Care</a>
+            <a href="lookbook.html" class="nav-link">Lookbook</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+
+        <div class="navbar-right-desktop">
+            <button class="icon-btn" id="desktop-theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            <button class="icon-btn" id="desktop-rtl-toggle" aria-label="Toggle direction"><i class="fas fa-exchange-alt"></i></button>
+            <a href="contact.html" class="cta-btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ═══════════════ MOBILE MENU ═══════════════ -->
+<div id="mobile-menu" class="mobile-menu">
+    <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+            <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+            <div class="logo-word">
+                <div class="logo-text">IRON<span>&OAK</span></div>
+            </div>
+        </a>
+        <button class="mobile-menu-close" id="close-mobile-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-items">
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown('home-dropdown')">
+                Home <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="home-dropdown" class="mobile-dropdown-content">
+                <a href="index.html">Home 1</a>
+                <a href="home-2.html">Home 2</a>
+            </div>
+        </div>
+        <a href="about.html" class="mobile-nav-item">About Us <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="grooming.html" class="mobile-nav-item">Grooming <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="blade-and-bone.html" class="mobile-nav-item">Blade & Bone <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="rituals.html" class="mobile-nav-item">Rituals <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="beard-care.html" class="mobile-nav-item active">Beard Care <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="lookbook.html" class="mobile-nav-item">Lookbook <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+        <a href="contact.html" class="mobile-nav-item">Contact <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+
+        <div class="mobile-action-buttons">
+            <a href="contact.html" class="mobile-action-btn primary">
+                <span><i class="fas fa-calendar-check"></i> Book Appointment</span>
+                <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+            </a>
+            <button class="mobile-action-btn" id="mobile-rtl-toggle">
+                <span><i class="fas fa-exchange-alt"></i> Switch Direction</span>
+                <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+            </button>
+            <button class="mobile-action-btn" id="mobile-theme-toggle">
+                <span><i class="fas fa-circle-half-stroke"></i> Toggle Theme</span>
+                <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ BEARD HERO — asymmetric apothecary ═══════════════ -->
+<section class="page-hero">
+    <div class="container page-hero-inner">
+        <span class="crumb"><i class="fas fa-leaf"></i> Beard Care · Apothecary</span>
+        <h1>Treat your beard like <span>it's got a job to do.</span></h1>
+        <p>A beard is a daily thing. Oils to soften it, balms to shape it, blades to line it, and a barber who actually knows the difference. This is the whole ritual, laid out plainly.</p>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 1: RITUAL TIMELINE ═══════════════ -->
+<section class="section" id="ritual">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-head-left">
+                <span class="eyebrow">The Daily Ritual</span>
+                <h2>Seven Steps That Change Everything</h2>
+                <p>This is the exact routine our barbers walk clients through on their first beard appointment. Skip a step and you'll feel it in a week.</p>
+            </div>
+        </div>
+
+        <div class="ritual-wrap">
+            <!-- Sticky index -->
+            <aside class="ritual-side">
+                <span class="rs-label">Jump to Step</span>
+                <ul>
+                    <li><a href="#step1" class="active"><span class="num">01</span> Cleanse</a></li>
+                    <li><a href="#step2"><span class="num">02</span> Condition</a></li>
+                    <li><a href="#step3"><span class="num">03</span> Dry & Comb</a></li>
+                    <li><a href="#step4"><span class="num">04</span> Oil</a></li>
+                    <li><a href="#step5"><span class="num">05</span> Balm</a></li>
+                    <li><a href="#step6"><span class="num">06</span> Trim & Line</a></li>
+                    <li><a href="#step7"><span class="num">07</span> Brush & Set</a></li>
+                </ul>
+            </aside>
+
+            <!-- Step cards -->
+            <div class="ritual-steps">
+                <article class="step-card" id="step1">
+                    <div class="step-num">01</div>
+                    <div class="step-body">
+                        <h3>Cleanse <span class="step-chip">Daily</span></h3>
+                        <p>Beard wash — not shampoo. Shampoo strips the natural oils your beard needs. Use a dedicated beard cleanser 2–3 times a week.</p>
+                        <div class="step-tip"><i class="fas fa-lightbulb"></i> <span>Rinse with lukewarm water, never hot. Hot water dries out the follicles.</span></div>
+                    </div>
+                </article>
+
+                <article class="step-card" id="step2">
+                    <div class="step-num">02</div>
+                    <div class="step-body">
+                        <h3>Condition <span class="step-chip">2–3×/week</span></h3>
+                        <p>A good beard conditioner softens the hair, reduces itch, and makes it easier to shape. Leave it in for 2–3 minutes before rinsing.</p>
+                    </div>
+                </article>
+
+                <article class="step-card" id="step3">
+                    <div class="step-num">03</div>
+                    <div class="step-body">
+                        <h3>Dry & Comb <span class="step-chip">Daily</span></h3>
+                        <p>Pat dry with a towel. Never rub. Comb in the direction of growth with a wide-tooth beard comb to detangle without breaking.</p>
+                        <div class="step-tip"><i class="fas fa-lightbulb"></i> <span>A wooden comb is better than plastic — less static, no snagging.</span></div>
+                    </div>
+                </article>
+
+                <article class="step-card" id="step4">
+                    <div class="step-num">04</div>
+                    <div class="step-body">
+                        <h3>Oil <span class="step-chip">Daily</span></h3>
+                        <p>3–5 drops of beard oil, worked into the skin underneath — not just the hair. This is the step most men skip, and it's the one that matters most.</p>
+                    </div>
+                </article>
+
+                <article class="step-card" id="step5">
+                    <div class="step-num">05</div>
+                    <div class="step-body">
+                        <h3>Balm <span class="step-chip">For longer beards</span></h3>
+                        <p>Balm is for shape and hold. If your beard is longer than two inches, balm keeps it looking intentional instead of wild.</p>
+                    </div>
+                </article>
+
+                <article class="step-card" id="step6">
+                    <div class="step-num">06</div>
+                    <div class="step-body">
+                        <h3>Trim & Line <span class="step-chip">Weekly</span></h3>
+                        <p>Clean up the cheek line and neckline once a week. Everything below the jawline should be trimmed, everything above left alone for shape.</p>
+                        <div class="step-tip"><i class="fas fa-lightbulb"></i> <span>Neckline: two fingers above the Adam's apple. That's the line.</span></div>
+                    </div>
+                </article>
+
+                <article class="step-card" id="step7">
+                    <div class="step-num">07</div>
+                    <div class="step-body">
+                        <h3>Brush & Set <span class="step-chip">Daily</span></h3>
+                        <p>Finish with a boar-bristle brush. It distributes oil evenly, trains the hair direction, and gives the beard a healthy shine.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 2: BEARD SERVICES (table) ═══════════════ -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-head-left">
+                <span class="eyebrow">In-Studio Services</span>
+                <h2>Beard Work by Master Barbers</h2>
+                <p>Book any of these in-studio. Every service ends with a hot towel and a beard oil finish — no upsells, no hidden add-ons.</p>
+            </div>
+            <a href="contact.html" class="btn-outline"><i class="fas fa-calendar-check"></i> Book a Chair</a>
+        </div>
+
+        <div class="svc-table">
+            <div class="svc-row">
+                <div class="svc-icon"><i class="fas fa-cut"></i></div>
+                <div>
+                    <div class="svc-name">Beard Sculpting</div>
+                    <div class="svc-desc">Line-up, cheek shaping, and fade work on the sideburns.</div>
+                </div>
+                <div class="svc-duration"><i class="fas fa-clock"></i> 30 min</div>
+                <div class="svc-price">$30–$55</div>
+                <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="svc-row">
+                <div class="svc-icon"><i class="fas fa-fire"></i></div>
+                <div>
+                    <div class="svc-name">Hot Towel Beard Treatment</div>
+                    <div class="svc-desc">Steam, exfoliate, oil massage, and a straight-razor edge-up.</div>
+                </div>
+                <div class="svc-duration"><i class="fas fa-clock"></i> 40 min</div>
+                <div class="svc-price">$45–$70</div>
+                <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="svc-row">
+                <div class="svc-icon"><i class="fas fa-user-tie"></i></div>
+                <div>
+                    <div class="svc-name">Full Groom Package</div>
+                    <div class="svc-desc">Signature haircut + beard sculpt + hot towel finish.</div>
+                </div>
+                <div class="svc-duration"><i class="fas fa-clock"></i> 75 min</div>
+                <div class="svc-price">$85–$120</div>
+                <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="svc-row">
+                <div class="svc-icon"><i class="fas fa-spa"></i></div>
+                <div>
+                    <div class="svc-name">Beard Consultation</div>
+                    <div class="svc-desc">Free 15-minute session. Face shape, growth pattern, product pick.</div>
+                </div>
+                <div class="svc-duration"><i class="fas fa-clock"></i> 15 min</div>
+                <div class="svc-price">Free</div>
+                <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <div class="svc-row">
+                <div class="svc-icon"><i class="fas fa-gift"></i></div>
+                <div>
+                    <div class="svc-name">First-Time Beard Kit</div>
+                    <div class="svc-desc">Full sculpt + travel-sized oil & balm set to take home.</div>
+                </div>
+                <div class="svc-duration"><i class="fas fa-clock"></i> 45 min</div>
+                <div class="svc-price">$65</div>
+                <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 3: BEARD LENGTH GUIDE ═══════════════ -->
+<section class="section">
+    <div class="container">
+        <div class="sec-head" style="justify-content: center; text-align: center; flex-direction: column; align-items: center;">
+            <div class="sec-head-left" style="max-width: 680px; text-align: center;">
+                <span class="eyebrow" style="justify-content: center;">Length Guide</span>
+                <h2>How Long Is Your Beard, Really?</h2>
+                <p>Beard length isn't measured in weeks — it's measured in millimetres, inches, and how far down your chest it sits. Here's what each stage actually looks like, and what it needs.</p>
+            </div>
+        </div>
+
+        <div class="length-rail">
+            <div class="length-line"></div>
+
+            <article class="length-stop">
+                <div class="length-marker">
+                    <span class="length-num">01</span>
+                    <span class="length-mm">0–3mm</span>
+                </div>
+                <div class="length-card">
+                    <div class="length-head">
+                        <h3>Stubble</h3>
+                        <span class="length-chip">2–5 days</span>
+                    </div>
+                    <p class="length-desc">Rough, even growth across the face. The "I forgot to shave" look, but on purpose. Skin still visible between hairs.</p>
+                    <ul class="length-needs">
+                        <li><i class="fas fa-check"></i> Daily wash with cold water</li>
+                        <li><i class="fas fa-check"></i> 2 drops of oil, worked into skin</li>
+                        <li><i class="fas fa-check"></i> Comb to train growth direction</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="length-stop">
+                <div class="length-marker">
+                    <span class="length-num">02</span>
+                    <span class="length-mm">3–8mm</span>
+                </div>
+                <div class="length-card">
+                    <div class="length-head">
+                        <h3>Short Beard</h3>
+                        <span class="length-chip">1–2 weeks</span>
+                    </div>
+                    <p class="length-desc">The cheek line becomes visible, the neckline needs shaping, and the itch phase has just arrived. This is where most men quit.</p>
+                    <ul class="length-needs">
+                        <li><i class="fas fa-check"></i> Beard wash 2–3× per week</li>
+                        <li><i class="fas fa-check"></i> 3–4 drops of oil, daily</li>
+                        <li><i class="fas fa-check"></i> Trim cheek and neck line weekly</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="length-stop">
+                <div class="length-marker">
+                    <span class="length-num">03</span>
+                    <span class="length-mm">8–20mm</span>
+                </div>
+                <div class="length-card">
+                    <div class="length-head">
+                        <h3>Medium Beard</h3>
+                        <span class="length-chip">3–6 weeks</span>
+                    </div>
+                    <p class="length-desc">Real shape starts forming. The chin pulls forward, the sides fill in, and a light balm helps it sit instead of sticking out.</p>
+                    <ul class="length-needs">
+                        <li><i class="fas fa-check"></i> Beard wash + conditioner weekly</li>
+                        <li><i class="fas fa-check"></i> 5 drops of oil, morning and night</li>
+                        <li><i class="fas fa-check"></i> Light balm for hold</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="length-stop">
+                <div class="length-marker">
+                    <span class="length-num">04</span>
+                    <span class="length-mm">20–50mm</span>
+                </div>
+                <div class="length-card">
+                    <div class="length-head">
+                        <h3>Full Beard</h3>
+                        <span class="length-chip">2–3 months</span>
+                    </div>
+                    <p class="length-desc">The point where beards stop looking accidental. Needs real maintenance — regular trimming, proper oils, and a brush that earns its keep.</p>
+                    <ul class="length-needs">
+                        <li><i class="fas fa-check"></i> Wash + condition 2× per week</li>
+                        <li><i class="fas fa-check"></i> Oil + balm daily, both</li>
+                        <li><i class="fas fa-check"></i> Boar bristle brush, twice a day</li>
+                        <li><i class="fas fa-check"></i> Studio trim every 4–6 weeks</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="length-stop">
+                <div class="length-marker">
+                    <span class="length-num">05</span>
+                    <span class="length-mm">50mm+</span>
+                </div>
+                <div class="length-card">
+                    <div class="length-head">
+                        <h3>Long Beard</h3>
+                        <span class="length-chip">6 months+</span>
+                    </div>
+                    <p class="length-desc">A commitment, not a look. Weekly trims, nightly oil, and a proper wooden comb become non-negotiable. Worth it if you mean it.</p>
+                    <ul class="length-needs">
+                        <li><i class="fas fa-check"></i> Full wash + condition routine</li>
+                        <li><i class="fas fa-check"></i> Oil, balm, and heat protection if blow-drying</li>
+                        <li><i class="fas fa-check"></i> Weekly edge trim at home</li>
+                        <li><i class="fas fa-check"></i> Studio reshape every 3–4 weeks</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+<!-- ═══════════════ SECTION 4: PRODUCT SHELF ═══════════════ -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-head-left">
+                <span class="eyebrow">The Product Shelf</span>
+                <h2>Small-Batch. No Filler.</h2>
+                <p>Everything we use in-studio is available to take home. Made by two small shops we trust, never mass-produced.</p>
+            </div>
+        </div>
+
+        <div class="shelf">
+            <div class="jar">
+                <div class="jar-top">
+                    <div class="jar-icon"><i class="fas fa-tint"></i></div>
+                    <span class="jar-tag">Best Seller</span>
+                </div>
+                <h4>Oak Beard Oil</h4>
+                <div class="jar-vol">30ml · Cedar & Bergamot</div>
+                <p>Jojoba, argan, and sweet almond base. Absorbs fast, no greasy finish. The one we use on every client.</p>
+                <div class="jar-foot">
+                    <span class="jar-price">$24</span>
+                    <a href="contact.html" class="jar-cta">Enquire <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="jar">
+                <div class="jar-top">
+                    <div class="jar-icon"><i class="fas fa-hand-sparkles"></i></div>
+                    <span class="jar-tag">For Long Beards</span>
+                </div>
+                <h4>Sculpting Balm</h4>
+                <div class="jar-vol">60ml · Unscented</div>
+                <p>Beeswax, shea butter, and lanolin. Holds shape all day without feeling stiff or waxy.</p>
+                <div class="jar-foot">
+                    <span class="jar-price">$28</span>
+                    <a href="contact.html" class="jar-cta">Enquire <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="jar">
+                <div class="jar-top">
+                    <div class="jar-icon"><i class="fas fa-soap"></i></div>
+                    <span class="jar-tag">Daily</span>
+                </div>
+                <h4>Beard Wash</h4>
+                <div class="jar-vol">200ml · Tea Tree & Mint</div>
+                <p>Sulfate-free cleanser that actually cleans without stripping. Safe for daily use on sensitive skin.</p>
+                <div class="jar-foot">
+                    <span class="jar-price">$18</span>
+                    <a href="contact.html" class="jar-cta">Enquire <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="jar">
+                <div class="jar-top">
+                    <div class="jar-icon"><i class="fas fa-brush"></i></div>
+                    <span class="jar-tag">Tool</span>
+                </div>
+                <h4>Boar Bristle Brush</h4>
+                <div class="jar-vol">Firm · Beechwood Handle</div>
+                <p>Firm natural bristles. Distributes oil evenly, trains growth direction, adds shine. Lasts years.</p>
+                <div class="jar-foot">
+                    <span class="jar-price">$32</span>
+                    <a href="contact.html" class="jar-cta">Enquire <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="jar">
+                <div class="jar-top">
+                    <div class="jar-icon"><i class="fas fa-seedling"></i></div>
+                    <span class="jar-tag">Gift</span>
+                </div>
+                <h4>Starter Kit</h4>
+                <div class="jar-vol">Oil + Balm + Comb</div>
+                <p>Everything a first-time beard grower needs. Comes in a canvas pouch. Free with any first beard service.</p>
+                <div class="jar-foot">
+                    <span class="jar-price">$52</span>
+                    <a href="contact.html" class="jar-cta">Enquire <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 5: BEARD HABITS (do/don't) ═══════════════ -->
+<section class="section">
+    <div class="container">
+        <div class="sec-head">
+            <div class="sec-head-left">
+                <span class="eyebrow">Habits</span>
+                <h2>What Ruins a Beard</h2>
+                <p>Five things that quietly wreck a good beard — and the fix for each.</p>
+            </div>
+        </div>
+
+        <div class="habits">
+            <div class="habit">
+                <div class="habit-mark"><i class="fas fa-times"></i></div>
+                <div class="habit-body">
+                    <h4>Using Head Shampoo</h4>
+                    <p>Strips natural oils. Switch to beard wash 2–3 times a week, no more.</p>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="habit-mark"><i class="fas fa-times"></i></div>
+                <div class="habit-body">
+                    <h4>Towel-Rubbing Dry</h4>
+                    <p>Breaks hair and causes split ends. Pat dry, then comb while slightly damp.</p>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="habit-mark"><i class="fas fa-times"></i></div>
+                <div class="habit-body">
+                    <h4>Skipping Oil on Short Beards</h4>
+                    <p>Skin under the beard still needs moisture. Oil the skin, not just the hair.</p>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="habit-mark"><i class="fas fa-times"></i></div>
+                <div class="habit-body">
+                    <h4>Trimming Wet</h4>
+                    <p>Wet hair stretches, then dries shorter. You'll always cut too much. Trim dry.</p>
+                </div>
+            </div>
+            <div class="habit">
+                <div class="habit-mark"><i class="fas fa-times"></i></div>
+                <div class="habit-body">
+                    <h4>Ignoring the Neckline</h4>
+                    <p>An unkempt neckline ages you 5 years. Two fingers above the Adam's apple is the line.</p>
+                </div>
+            </div>
+            <div class="habit good">
+                <div class="habit-mark"><i class="fas fa-check"></i></div>
+                <div class="habit-body">
+                    <h4>The Fix for All of It</h4>
+                    <p>Book a 15-minute beard consult. We'll map your face and hand you a routine that fits.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SECTION 6: CTA — accent block with rotating stamp ═══════════════ -->
+<section class="section" style="padding-bottom: 6rem;">
+    <div class="container">
+        <div class="bd-cta">
+            <div class="bd-cta-left">
+                <span class="tag">Ready when you are</span>
+                <h2>Book a beard consult.<br>Walk out with a plan.</h2>
+                <p>Fifteen minutes, no charge, no pressure. We'll look at your growth pattern, face shape, and skin — then tell you exactly what to do and what to skip.</p>
+                <div class="bd-cta-actions">
+                    <a href="contact.html" class="btn-dark"><i class="fas fa-calendar-check"></i> Book Consult</a>
+                    <a href="grooming.html" class="btn-ghost">See All Services</a>
+                </div>
+            </div>
+            <div class="bd-cta-right">
+                <div class="bd-cta-stamp">
+                    <div class="bd-cta-stamp-inner">
+                        <div class="num">15</div>
+                        <div class="lbl">Min · Free</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-main">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+                    <div class="logo-word">
+                        <div class="logo-text">IRON<span>&OAK</span></div>
+                        <span class="logo-tagline">grooming · craft · character</span>
+                    </div>
+                </a>
+                <p class="footer-tagline">Open 7 days · 9am–8pm. Men's grooming studio & barbershop in the heart of downtown.</p>
+                <div class="footer-social">
+                    <a href="#" class="footer-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="footer-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="grooming.html"><i class="fas fa-chevron-right"></i> Grooming</a></li>
+                    <li><a href="blade-and-bone.html"><i class="fas fa-chevron-right"></i> Blade & Bone </a></li>
+                    <li><a href="rituals.html"><i class="fas fa-chevron-right"></i> Rituals</a></li>
+                    <li><a href="beard-care.html"><i class="fas fa-chevron-right"></i> Beard Care</a></li>
+                    <li><a href="lookbook.html"><i class="fas fa-chevron-right"></i> Lookbook</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Book</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3 class="footer-heading">Stay Connected</h3>
+                <p>Subscribe for offers & new service drops.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                    <input type="email" placeholder="Your email address" class="footer-input">
+                    <button class="footer-btn"><i class="fas fa-paper-plane"></i> Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">© 2026 Iron & Oak – Men's Grooming Studio. All rights reserved.</div>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<button id="scroll-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    function toggleMobileDropdown(id) {
+        const element = document.getElementById(id);
+        if (element) element.classList.toggle('active');
+    }
+
+    (function () {
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('desktop-theme-toggle');
+        const mobileTheme = document.getElementById('mobile-theme-toggle');
+        let theme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', theme);
+
+        const savedDir = localStorage.getItem('direction');
+        if (savedDir) html.setAttribute('dir', savedDir);
+
+        function updateThemeIcons(t) {
+            const icon = document.querySelector('#desktop-theme-toggle i');
+            if (icon) icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+        updateThemeIcons(theme);
+
+        function toggleThemeFunc() {
+            let cur = html.getAttribute('data-theme');
+            let nw = cur === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', nw);
+            localStorage.setItem('theme', nw);
+            updateThemeIcons(nw);
+        }
+        if (themeToggle) themeToggle.addEventListener('click', toggleThemeFunc);
+        if (mobileTheme) mobileTheme.addEventListener('click', toggleThemeFunc);
+
+        function toggleRtl() {
+            let dir = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', dir);
+            localStorage.setItem('direction', dir);
+        }
+        document.getElementById('desktop-rtl-toggle')?.addEventListener('click', toggleRtl);
+        document.getElementById('mobile-rtl-toggle')?.addEventListener('click', toggleRtl);
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        if (menuBtn) menuBtn.onclick = () => mobileMenu.classList.add('active');
+        if (closeBtn) closeBtn.onclick = () => mobileMenu.classList.remove('active');
+        mobileMenu?.addEventListener('click', (e) => { if (e.target === mobileMenu) mobileMenu.classList.remove('active'); });
+
+        const scrollBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+        scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        /* ══ Ritual side index — active highlight + smooth scroll ══ */
+        const ritualLinks = document.querySelectorAll('.ritual-side a');
+        const ritualCards = document.querySelectorAll('.step-card');
+        ritualLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const y = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        });
+
+        const ritualObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    ritualLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+        ritualCards.forEach(card => ritualObserver.observe(card));
+
+        /* ══ Shape guide tabs ══ */
+        const shapeTabs = document.querySelectorAll('.shape-tab');
+        const shapePanels = document.querySelectorAll('.shape-panel');
+        shapeTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const shape = tab.dataset.shape;
+                shapeTabs.forEach(t => t.classList.toggle('active', t === tab));
+                shapePanels.forEach(p => p.classList.toggle('active', p.dataset.shape === shape));
+            });
+        });
+    })();
+</script>
+</body>
+</html>

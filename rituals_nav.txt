@@ -1,0 +1,116 @@
+177:        .navbar-container {
+178-            position: fixed;
+179-            top: 0;
+180-            left: 0;
+181-            right: 0;
+182-            width: 100%;
+183-            z-index: 1000;
+184-            background: var(--navbar-bg);
+185-            backdrop-filter: blur(20px) saturate(180%);
+186-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+187-            border-bottom: 1px solid var(--border-dim);
+188-            transition: background 0.3s ease, border-color 0.3s ease;
+189-        }
+190:        .navbar-container::after {
+191-            content: '';
+192-            position: absolute;
+193-            left: 0; right: 0; bottom: -1px;
+194-            height: 1px;
+195-            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+196-            opacity: 0.4;
+197-        }
+198-
+199-        .navbar-flex {
+200-            display: flex;
+201-            align-items: center;
+202-            justify-content: space-between;
+203-            gap: 1.5rem;
+204-            height: 4rem;
+205-        }
+206-
+207-        .desktop-nav {
+208-            display: flex;
+209-            align-items: center;
+210-            gap: 0.2rem;
+211-            flex: 1;
+212-            justify-content: center;
+213-        }
+214-        .nav-link {
+215-            position: relative;
+216-            color: var(--text-main);
+217-            font-size: 0.85rem;
+218-            font-weight: 500;
+219-            padding: 0.55rem 0.85rem;
+220-            text-decoration: none;
+221-            cursor: pointer;
+222-            display: inline-flex;
+223-            align-items: center;
+224-            gap: 0.3rem;
+225-            transition: color 0.25s ease;
+226-            white-space: nowrap;
+227-            line-height: 1;
+228-        }
+229-        .nav-link:hover { color: var(--accent); }
+230-        .nav-link::after {
+231-            content: '';
+232-            position: absolute;
+233-            left: 50%;
+234-            bottom: 0.1rem;
+235-            width: 0;
+236-            height: 2px;
+237-            background: var(--accent);
+238-            border-radius: 2px;
+239-            transform: translateX(-50%);
+240-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+--
+1579:<nav class="navbar-container" id="navbar">
+1580-    <div class="container navbar-flex">
+1581-        <a href="index.html" class="logo">
+1582-            <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+1583-            <div class="logo-word">
+1584-                <div class="logo-text">IRON<span>&OAK</span></div>
+1585-                <span class="logo-tagline">grooming · craft · character</span>
+1586-            </div>
+1587-        </a>
+1588-
+1589-        <div class="desktop-nav">
+1590-            <div class="dropdown">
+1591-                <div class="nav-link">Home <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i></div>
+1592-                <div class="dropdown-menu">
+1593-                    <a href="index.html" class="dropdown-item">Home 1</a>
+1594-                    <a href="home-2.html" class="dropdown-item">Home 2</a>
+1595-                </div>
+1596-            </div>
+1597-            <a href="about.html" class="nav-link">About Us</a>
+1598-            <a href="grooming.html" class="nav-link">Grooming</a>
+1599-            <a href="blade-and-bone.html" class="nav-link">Blade &amp; Bone</a>
+1600-
+1601-            <a href="rituals.html" class="nav-link active">Rituals</a>
+1602-            <a href="beard-care.html" class="nav-link">Beard Care</a>
+1603-            <a href="lookbook.html" class="nav-link">Lookbook</a>
+1604-            <a href="contact.html" class="nav-link">Contact</a>
+1605-        </div>
+1606-
+1607-        <div class="navbar-right-desktop">
+1608-            <button class="icon-btn" id="desktop-theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+1609-            <button class="icon-btn" id="desktop-rtl-toggle" aria-label="Toggle direction"><i class="fas fa-exchange-alt"></i></button>
+1610-            <a href="contact.html" class="cta-btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+1611-        </div>
+1612-
+1613-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+1614-            <span></span>
+1615-            <span></span>
+1616-            <span></span>
+1617-        </button>
+1618-    </div>
+1619-</nav>
+1620-
+1621-<!-- ═══════════════ MOBILE MENU ═══════════════ -->
+1622-<div id="mobile-menu" class="mobile-menu">
+1623-    <div class="mobile-menu-header">
+1624-        <a href="index.html" class="logo">
+1625-            <div class="logo-mark"><i class="fas fa-scissors"></i></div>
+1626-            <div class="logo-word">
+1627-                <div class="logo-text">IRON<span>&OAK</span></div>
+1628-            </div>
+1629-        </a>

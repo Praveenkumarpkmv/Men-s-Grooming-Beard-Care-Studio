@@ -1,0 +1,23 @@
+        }
+        .logo-mark::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease;
+        }
+        .logo:hover .logo-mark::after { transform: translateX(100%); }
+        .logo-mark i {
+            color: #0A0A0A;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        [data-theme="light"] .logo-mark i { color: #FFFFFF; }
+
+        .logo-word {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1;
