@@ -1053,13 +1053,13 @@
 .length-line {
     position: absolute;
     left: 2.75rem;
-    top: 1.5rem;
+    top: 2.2rem;
     bottom: 1.5rem;
     width: 2px;
     background: linear-gradient(180deg, transparent 0%, var(--border-dim) 8%, var(--border-dim) 92%, transparent 100%);
 }
 @media (max-width: 700px) {
-    .length-line { left: 1.75rem; }
+    .length-line { left: 1.75rem; top: 2rem; }
 }
 
 .length-stop {
@@ -1072,17 +1072,17 @@
 /* Marker with number + mm size */
 .length-marker {
     position: absolute;
-    left: -5.5rem;
+    left: -5.8rem;
     top: 1.8rem;
-    width: 3.6rem;
+    width: 4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.35rem;
-    z-index: 2;
+    z-index: 3;
 }
 @media (max-width: 700px) {
-    .length-marker { left: -3.5rem; width: 3rem; top: 1.4rem; }
+    .length-marker { left: -3.8rem; width: 3.2rem; top: 1.4rem; }
 }
 .length-stop:first-child .length-marker { top: 0.2rem; }
 

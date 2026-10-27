@@ -865,20 +865,52 @@
         }
         .timeline-intro-text { max-width: 620px; }
 
+        .timeline-nav-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        @media (max-width: 900px) {
+            .timeline-nav-wrap { gap: 0.6rem; }
+        }
         .timeline-scroller {
             display: flex;
             gap: 1.2rem;
             overflow-x: auto;
             padding: 2rem 0 2.5rem;
             scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) transparent;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             -webkit-overflow-scrolling: touch;
             position: relative;
+            flex: 1;
         }
-        .timeline-scroller::-webkit-scrollbar { height: 6px; }
-        .timeline-scroller::-webkit-scrollbar-track { background: var(--border-dim); border-radius: 3px; }
-        .timeline-scroller::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+        .timeline-scroller::-webkit-scrollbar { display: none; }
+
+        .timeline-nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .timeline-nav-btn:hover {
+            background: var(--accent);
+            color: #0A0A0A;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .timeline-nav-btn { width: 42px; height: 42px; }
+        }
 
         .tl-card {
             flex: 0 0 320px;
@@ -930,21 +962,8 @@
         [dir="rtl"] .tl-badge { right: auto; left: 1.2rem; }
 
         .timeline-hint {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--footer-text);
-            font-size: 0.72rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 700;
+            display: none;
         }
-        .timeline-hint i { color: var(--accent); animation: slideHint 2s ease-in-out infinite; }
-        @keyframes slideHint {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(6px); }
-        }
-        [dir="rtl"] .timeline-hint i { animation-direction: reverse; }
 
         /* ══════════════════════════════════════════
            SECTION 3: MANIFESTO — numbered list
@@ -1549,51 +1568,51 @@
                     <p>The moments that actually mattered — the rest is just emails and invoices.</p>
                 </div>
             </div>
-            <div class="timeline-hint">
-                <span>Scroll sideways</span>
-                <i class="fas fa-arrow-right"></i>
-            </div>
         </div>
     </div>
 
     <div class="container">
-        <div class="timeline-scroller">
-            <article class="tl-card">
-                <span class="tl-badge"></span>
-                <div class="tl-year">2018</div>
-                <div class="tl-title">Two Chairs on Oak Street</div>
-                <div class="tl-desc">Marcus opens Iron & Oak in a former record shop. Two chairs, one mirror, a borrowed espresso machine.</div>
-            </article>
-            <article class="tl-card">
-                <span class="tl-badge"></span>
-                <div class="tl-year">2019</div>
-                <div class="tl-title">Elias Joins the Team</div>
-                <div class="tl-desc">Beard specialist Elias signs on. Within six months, beard sculpts become our most-booked service.</div>
-            </article>
-            <article class="tl-card">
-                <span class="tl-badge"></span>
-                <div class="tl-year">2020</div>
-                <div class="tl-title">The Lockdown Leap</div>
-                <div class="tl-desc">Closed for eight weeks. Came back with two more chairs, a proper wash station, and a waiting list.</div>
-            </article>
-            <article class="tl-card">
-                <span class="tl-badge"></span>
-                <div class="tl-year">2022</div>
-                <div class="tl-title">Theo & the Fade Bar</div>
-                <div class="tl-desc">Theo joins as our fade specialist. We dedicate a chair to skin fades and line-ups only.</div>
-            </article>
-            <article class="tl-card">
-                <span class="tl-badge"></span>
-                <div class="tl-year">2024</div>
-                <div class="tl-title">The Oak Club Opens</div>
-                <div class="tl-desc">Membership program launches with three tiers. Fifty members in the first month — now over three hundred.</div>
-            </article>
-            <article class="tl-card">
-                <span class="tl-badge"></span>
-                <div class="tl-year">2026</div>
-                <div class="tl-title">Twelve Thousand Cuts</div>
-                <div class="tl-desc">We cross 12,000 cuts delivered. Same two blocks, same three barbers, still no franchising plans.</div>
-            </article>
+        <div class="timeline-nav-wrap">
+            <button class="timeline-nav-btn timeline-nav-prev" id="timelinePrev" aria-label="Previous milestone"><i class="fas fa-arrow-left"></i></button>
+            <div class="timeline-scroller" id="timelineScroller">
+                <article class="tl-card">
+                    <span class="tl-badge"></span>
+                    <div class="tl-year">2018</div>
+                    <div class="tl-title">Two Chairs on Oak Street</div>
+                    <div class="tl-desc">Marcus opens Iron & Oak in a former record shop. Two chairs, one mirror, a borrowed espresso machine.</div>
+                </article>
+                <article class="tl-card">
+                    <span class="tl-badge"></span>
+                    <div class="tl-year">2019</div>
+                    <div class="tl-title">Elias Joins the Team</div>
+                    <div class="tl-desc">Beard specialist Elias signs on. Within six months, beard sculpts become our most-booked service.</div>
+                </article>
+                <article class="tl-card">
+                    <span class="tl-badge"></span>
+                    <div class="tl-year">2020</div>
+                    <div class="tl-title">The Lockdown Leap</div>
+                    <div class="tl-desc">Closed for eight weeks. Came back with two more chairs, a proper wash station, and a waiting list.</div>
+                </article>
+                <article class="tl-card">
+                    <span class="tl-badge"></span>
+                    <div class="tl-year">2022</div>
+                    <div class="tl-title">Theo & the Fade Bar</div>
+                    <div class="tl-desc">Theo joins as our fade specialist. We dedicate a chair to skin fades and line-ups only.</div>
+                </article>
+                <article class="tl-card">
+                    <span class="tl-badge"></span>
+                    <div class="tl-year">2024</div>
+                    <div class="tl-title">The Oak Club Opens</div>
+                    <div class="tl-desc">Membership program launches with three tiers. Fifty members in the first month — now over three hundred.</div>
+                </article>
+                <article class="tl-card">
+                    <span class="tl-badge"></span>
+                    <div class="tl-year">2026</div>
+                    <div class="tl-title">Twelve Thousand Cuts</div>
+                    <div class="tl-desc">We cross 12,000 cuts delivered. Same two blocks, same three barbers, still no franchising plans.</div>
+                </article>
+            </div>
+            <button class="timeline-nav-btn timeline-nav-next" id="timelineNext" aria-label="Next milestone"><i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 </section>
@@ -1899,8 +1918,10 @@
         });
         scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-        /* ══ Timeline horizontal scroll — drag ══ */
-        const tlScroller = document.querySelector('.timeline-scroller');
+        /* ══ Timeline horizontal scroll — drag + nav ══ */
+        const tlScroller = document.getElementById('timelineScroller') || document.querySelector('.timeline-scroller');
+        const tlPrev = document.getElementById('timelinePrev');
+        const tlNext = document.getElementById('timelineNext');
         if (tlScroller) {
             let isDown = false, startX, scrollLeft;
             tlScroller.addEventListener('mousedown', (e) => {
@@ -1917,6 +1938,21 @@
                 const x = e.pageX - tlScroller.offsetLeft;
                 tlScroller.scrollLeft = scrollLeft - (x - startX) * 1.6;
             });
+
+            if (tlPrev) {
+                tlPrev.addEventListener('click', () => {
+                    const card = tlScroller.querySelector('.tl-card');
+                    const cardWidth = card ? card.getBoundingClientRect().width : 320;
+                    tlScroller.scrollBy({ left: -(cardWidth + 19.2), behavior: 'smooth' });
+                });
+            }
+            if (tlNext) {
+                tlNext.addEventListener('click', () => {
+                    const card = tlScroller.querySelector('.tl-card');
+                    const cardWidth = card ? card.getBoundingClientRect().width : 320;
+                    tlScroller.scrollBy({ left: cardWidth + 19.2, behavior: 'smooth' });
+                });
+            }
         }
     })();
 </script>

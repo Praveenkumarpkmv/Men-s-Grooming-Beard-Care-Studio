@@ -615,7 +615,7 @@
             position: relative;
             z-index: 3;
             width: 100%;
-            padding-bottom: 4rem;
+            padding-bottom: 6rem;
         }
 
         .mg-hero-grid {
@@ -650,7 +650,7 @@
             letter-spacing: 0.28em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 1.6rem;
+            margin-bottom: 2.4rem;
         }
         .mg-hero-issue i { font-size: 0.6rem; }
 
@@ -660,7 +660,7 @@
             font-weight: 800;
             letter-spacing: -0.045em;
             color: var(--accent);
-            margin-bottom: 1.6rem;
+            margin-bottom: 2.4rem;
             text-shadow: 0 6px 30px rgba(0,0,0,0.6);
         }
         .mg-hero-title em {
@@ -678,7 +678,7 @@
             color: rgba(255,255,255,0.85);
             max-width: 560px;
             line-height: 1.75;
-            margin-bottom: 2rem;
+            margin-bottom: 2.8rem;
         }
 
         .mg-hero-actions {
@@ -827,20 +827,55 @@
             padding: 4rem 0 5rem;
             overflow: hidden;
         }
+        .reel-nav-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0 2rem;
+        }
+        @media (max-width: 900px) {
+            .reel-nav-wrap { padding: 0 1rem; gap: 0.6rem; }
+        }
         .reel-scroller {
             display: flex;
             gap: 1.2rem;
             overflow-x: auto;
-            padding: 1rem 2rem 2.5rem;
+            padding: 1rem 0 2.5rem;
             scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) transparent;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             cursor: grab;
+            flex: 1;
         }
-        .reel-scroller::-webkit-scrollbar { height: 6px; }
-        .reel-scroller::-webkit-scrollbar-track { background: var(--border-dim); border-radius: 3px; }
-        .reel-scroller::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+        .reel-scroller::-webkit-scrollbar { display: none; }
         .reel-scroller:active { cursor: grabbing; }
+
+        .reel-nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--border-dim);
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            backdrop-filter: blur(8px);
+            z-index: 2;
+        }
+        .reel-nav-btn:hover {
+            background: var(--accent);
+            color: #0A0A0A;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .reel-nav-btn { width: 42px; height: 42px; }
+        }
 
         .reel-card {
             flex: 0 0 300px;
@@ -931,18 +966,8 @@
         .reel-card-time i { font-size: 0.68rem; }
 
         .reel-hint {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            justify-content: center;
-            margin-top: 0.5rem;
-            font-size: 0.72rem;
-            color: var(--footer-text);
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            font-weight: 700;
+            display: none;
         }
-        .reel-hint i { color: var(--accent); animation: mgBob 2s ease-in-out infinite; }
 
         /* ══════════════════════════════════════════
            SECTION 2: BARBER SPOTLIGHT (split screen)
@@ -1563,10 +1588,7 @@
         </div>
     </div>
 
-    <div class="mg-scroll">
-        <span>Turn the page</span>
-        <i class="fas fa-chevron-down"></i>
-    </div>
+
 </section>
 
 <!-- ═══════════════ SECTION 1: CHAPTER REEL (horizontal scroll) ═══════════════ -->
@@ -1579,76 +1601,75 @@
         </div>
     </div>
 
-    <div class="reel-scroller" id="reelScroller">
-        <article class="reel-card">
-            <div class="reel-card-img">
-                <span class="reel-card-num">I</span>
-                <img src="asserts/home2.avif" alt="The Sit">
-            </div>
-            <div class="reel-card-body">
-                <span class="reel-card-tag">Chapter One</span>
-                <h3>The Sit</h3>
-                <p>You sit. We look. Before a single tool comes out, we're studying your hairline, your growth pattern, and how you actually wear it day to day.</p>
-                <div class="reel-card-time"><i class="fas fa-hourglass-start"></i> First 5 minutes</div>
-            </div>
-        </article>
+    <div class="reel-nav-wrap">
+        <button class="reel-nav-btn reel-nav-prev" id="reelPrev" aria-label="Previous chapter"><i class="fas fa-arrow-left"></i></button>
+        <div class="reel-scroller" id="reelScroller">
+            <article class="reel-card">
+                <div class="reel-card-img">
+                    <span class="reel-card-num">I</span>
+                    <img src="asserts/home2.avif" alt="The Sit">
+                </div>
+                <div class="reel-card-body">
+                    <span class="reel-card-tag">Chapter One</span>
+                    <h3>The Sit</h3>
+                    <p>You sit. We look. Before a single tool comes out, we're studying your hairline, your growth pattern, and how you actually wear it day to day.</p>
+                    <div class="reel-card-time"><i class="fas fa-hourglass-start"></i> First 5 minutes</div>
+                </div>
+            </article>
 
-        <article class="reel-card">
-            <div class="reel-card-img">
-                <span class="reel-card-num">II</span>
-                <img src="asserts/home3.avif" alt="The Wash">
-            </div>
-            <div class="reel-card-body">
-                <span class="reel-card-tag">Chapter Two</span>
-                <h3>The Wash</h3>
-                <p>Warm water, scalp massage, and a towel wrap. Clean hair cuts clean — this step isn't optional at Iron & Oak.</p>
-                <div class="reel-card-time"><i class="fas fa-hourglass-half"></i> Next 8 minutes</div>
-            </div>
-        </article>
+            <article class="reel-card">
+                <div class="reel-card-img">
+                    <span class="reel-card-num">II</span>
+                    <img src="asserts/home3.avif" alt="The Wash">
+                </div>
+                <div class="reel-card-body">
+                    <span class="reel-card-tag">Chapter Two</span>
+                    <h3>The Wash</h3>
+                    <p>Warm water, scalp massage, and a towel wrap. Clean hair cuts clean — this step isn't optional at Iron & Oak.</p>
+                    <div class="reel-card-time"><i class="fas fa-hourglass-half"></i> Next 8 minutes</div>
+                </div>
+            </article>
 
-        <article class="reel-card">
-            <div class="reel-card-img">
-                <span class="reel-card-num">III</span>
-                <img src="asserts/home5.avif" alt="The Cut">
-            </div>
-            <div class="reel-card-body">
-                <span class="reel-card-tag">Chapter Three</span>
-                <h3>The Cut</h3>
-                <p>Scissor or clipper, wet or dry — the tool that matters is whichever builds the shape you asked for. Section by section, no rushing.</p>
-                <div class="reel-card-time"><i class="fas fa-hourglass-half"></i> The longest stretch</div>
-            </div>
-        </article>
+            <article class="reel-card">
+                <div class="reel-card-img">
+                    <span class="reel-card-num">III</span>
+                    <img src="asserts/home5.avif" alt="The Cut">
+                </div>
+                <div class="reel-card-body">
+                    <span class="reel-card-tag">Chapter Three</span>
+                    <h3>The Cut</h3>
+                    <p>Scissor or clipper, wet or dry — the tool that matters is whichever builds the shape you asked for. Section by section, no rushing.</p>
+                    <div class="reel-card-time"><i class="fas fa-hourglass-half"></i> The longest stretch</div>
+                </div>
+            </article>
 
-        <article class="reel-card">
-            <div class="reel-card-img">
-                <span class="reel-card-num">IV</span>
-                <img src="asserts/home4.avif" alt="The Detail">
-            </div>
-            <div class="reel-card-body">
-                <span class="reel-card-tag">Chapter Four</span>
-                <h3>The Detail</h3>
-                <p>Neckline, ears, edges. This is the five minutes that separates "nice cut" from "who did that". No corners cut, no shortcuts taken.</p>
-                <div class="reel-card-time"><i class="fas fa-clock"></i> Last 5 minutes</div>
-            </div>
-        </article>
+            <article class="reel-card">
+                <div class="reel-card-img">
+                    <span class="reel-card-num">IV</span>
+                    <img src="asserts/home4.avif" alt="The Detail">
+                </div>
+                <div class="reel-card-body">
+                    <span class="reel-card-tag">Chapter Four</span>
+                    <h3>The Detail</h3>
+                    <p>Neckline, ears, edges. This is the five minutes that separates "nice cut" from "who did that". No corners cut, no shortcuts taken.</p>
+                    <div class="reel-card-time"><i class="fas fa-clock"></i> Last 5 minutes</div>
+                </div>
+            </article>
 
-        <article class="reel-card">
-            <div class="reel-card-img">
-                <span class="reel-card-num">V</span>
-                <img src="asserts/home6.avif" alt="The Finish">
-            </div>
-            <div class="reel-card-body">
-                <span class="reel-card-tag">Chapter Five</span>
-                <h3>The Finish</h3>
-                <p>Hot towel on the neck, a touch of balm, styling pointers for home. You leave knowing how to keep it looking like this.</p>
-                <div class="reel-card-time"><i class="fas fa-hourglass-end"></i> Final 3 minutes</div>
-            </div>
-        </article>
-    </div>
-
-    <div class="reel-hint">
-        <span>Drag or scroll</span>
-        <i class="fas fa-arrow-right"></i>
+            <article class="reel-card">
+                <div class="reel-card-img">
+                    <span class="reel-card-num">V</span>
+                    <img src="asserts/home6.avif" alt="The Finish">
+                </div>
+                <div class="reel-card-body">
+                    <span class="reel-card-tag">Chapter Five</span>
+                    <h3>The Finish</h3>
+                    <p>Hot towel on the neck, a touch of balm, styling pointers for home. You leave knowing how to keep it looking like this.</p>
+                    <div class="reel-card-time"><i class="fas fa-hourglass-end"></i> Final 3 minutes</div>
+                </div>
+            </article>
+        </div>
+        <button class="reel-nav-btn reel-nav-next" id="reelNext" aria-label="Next chapter"><i class="fas fa-arrow-right"></i></button>
     </div>
 </section>
 
@@ -1971,11 +1992,13 @@
             scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
         scrollBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        /* Reel drag-to-scroll */
+        /* Reel navigation + drag-to-scroll */
         const reel = document.getElementById('reelScroller');
+        const reelPrev = document.getElementById('reelPrev');
+        const reelNext = document.getElementById('reelNext');
         if (reel) {
             let isDown = false, startX, scrollLeft;
+
             reel.addEventListener('mousedown', (e) => {
                 isDown = true;
                 startX = e.pageX - reel.offsetLeft;
@@ -1989,6 +2012,21 @@
                 const x = e.pageX - reel.offsetLeft;
                 reel.scrollLeft = scrollLeft - (x - startX) * 1.6;
             });
+
+            if (reelPrev) {
+                reelPrev.addEventListener('click', () => {
+                    const card = reel.querySelector('.reel-card');
+                    const cardWidth = card ? card.getBoundingClientRect().width : 320;
+                    reel.scrollBy({ left: -(cardWidth + 19.2), behavior: 'smooth' });
+                });
+            }
+            if (reelNext) {
+                reelNext.addEventListener('click', () => {
+                    const card = reel.querySelector('.reel-card');
+                    const cardWidth = card ? card.getBoundingClientRect().width : 320;
+                    reel.scrollBy({ left: cardWidth + 19.2, behavior: 'smooth' });
+                });
+            }
         }
     })();
 </script>

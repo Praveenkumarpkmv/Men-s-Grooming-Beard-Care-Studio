@@ -967,19 +967,51 @@
         /* ══════════════════════════════════════════
            SECTION 2: PROCESS — horizontal scroll cards
            ══════════════════════════════════════════ */
+        .process-nav-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        @media (max-width: 900px) {
+            .process-nav-wrap { gap: 0.6rem; }
+        }
         .process-scroller {
             display: flex;
             gap: 1.2rem;
             overflow-x: auto;
             padding: 1rem 0 2rem;
             scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) transparent;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
             -webkit-overflow-scrolling: touch;
+            flex: 1;
         }
-        .process-scroller::-webkit-scrollbar { height: 6px; }
-        .process-scroller::-webkit-scrollbar-track { background: var(--border-dim); border-radius: 3px; }
-        .process-scroller::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+        .process-scroller::-webkit-scrollbar { display: none; }
+
+        .process-nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid var(--border-dim);
+            color: var(--accent);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .process-nav-btn:hover {
+            background: var(--accent);
+            color: #0A0A0A;
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .process-nav-btn { width: 42px; height: 42px; }
+        }
 
         .process-card {
             flex: 0 0 320px;
@@ -1054,23 +1086,8 @@
         }
 
         .scroll-hint {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 0.5rem;
-            font-size: 0.75rem;
-            color: var(--footer-text);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 600;
+            display: none;
         }
-        .scroll-hint i { color: var(--accent); animation: slideHint 2s ease-in-out infinite; }
-        @keyframes slideHint {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(6px); }
-        }
-        [dir="rtl"] .scroll-hint i { animation-direction: reverse; }
 
         /* ══════════════════════════════════════════
            SECTION 3: PRICE MENU (tabbed)
@@ -1990,53 +2007,53 @@
     </div>
 
     <div class="container">
-        <div class="process-scroller">
-            <article class="process-card">
-                <span class="process-num">01</span>
-                <div class="process-icon"><i class="fas fa-comments"></i></div>
-                <h3>Consultation</h3>
-                <p>We talk first. Hair type, lifestyle, how much time you want to spend styling — all of it matters before the first snip.</p>
-                <span class="process-time"><i class="fas fa-clock"></i> 5 min</span>
-            </article>
-            <article class="process-card">
-                <span class="process-num">02</span>
-                <div class="process-icon"><i class="fas fa-shower"></i></div>
-                <h3>Wash & Prep</h3>
-                <p>Clean hair cuts better. Warm wash, scalp massage, and a towel wrap while we set up.</p>
-                <span class="process-time"><i class="fas fa-clock"></i> 8 min</span>
-            </article>
-            <article class="process-card">
-                <span class="process-num">03</span>
-                <div class="process-icon"><i class="fas fa-cut"></i></div>
-                <h3>The Cut</h3>
-                <p>Scissor work, clipper work, or both. Built section by section so the shape lands exactly where it should.</p>
-                <span class="process-time"><i class="fas fa-clock"></i> 20 min</span>
-            </article>
-            <article class="process-card">
-                <span class="process-num">04</span>
-                <div class="process-icon"><i class="fas fa-brush"></i></div>
-                <h3>Detailing</h3>
-                <p>Edges, line-up, and neckline. This is where a good cut becomes a great one.</p>
-                <span class="process-time"><i class="fas fa-clock"></i> 7 min</span>
-            </article>
-            <article class="process-card">
-                <span class="process-num">05</span>
-                <div class="process-icon"><i class="fas fa-spa"></i></div>
-                <h3>Hot Towel Finish</h3>
-                <p>Hot towel on the neck, a touch of balm, and a quick once-over with the mirror.</p>
-                <span class="process-time"><i class="fas fa-clock"></i> 3 min</span>
-            </article>
-            <article class="process-card">
-                <span class="process-num">06</span>
-                <div class="process-icon"><i class="fas fa-lightbulb"></i></div>
-                <h3>Styling Tips</h3>
-                <p>We show you how to recreate it at home. Products, amounts, direction — no gatekeeping.</p>
-                <span class="process-time"><i class="fas fa-clock"></i> 2 min</span>
-            </article>
-        </div>
-        <div class="scroll-hint">
-            <span>Drag or scroll</span>
-            <i class="fas fa-arrow-right"></i>
+        <div class="process-nav-wrap">
+            <button class="process-nav-btn process-nav-prev" id="processPrev" aria-label="Previous step"><i class="fas fa-arrow-left"></i></button>
+            <div class="process-scroller" id="processScroller">
+                <article class="process-card">
+                    <span class="process-num">01</span>
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Consultation</h3>
+                    <p>We talk first. Hair type, lifestyle, how much time you want to spend styling — all of it matters before the first snip.</p>
+                    <span class="process-time"><i class="fas fa-clock"></i> 5 min</span>
+                </article>
+                <article class="process-card">
+                    <span class="process-num">02</span>
+                    <div class="process-icon"><i class="fas fa-shower"></i></div>
+                    <h3>Wash & Prep</h3>
+                    <p>Clean hair cuts better. Warm wash, scalp massage, and a towel wrap while we set up.</p>
+                    <span class="process-time"><i class="fas fa-clock"></i> 8 min</span>
+                </article>
+                <article class="process-card">
+                    <span class="process-num">03</span>
+                    <div class="process-icon"><i class="fas fa-cut"></i></div>
+                    <h3>The Cut</h3>
+                    <p>Scissor work, clipper work, or both. Built section by section so the shape lands exactly where it should.</p>
+                    <span class="process-time"><i class="fas fa-clock"></i> 20 min</span>
+                </article>
+                <article class="process-card">
+                    <span class="process-num">04</span>
+                    <div class="process-icon"><i class="fas fa-brush"></i></div>
+                    <h3>Detailing</h3>
+                    <p>Edges, line-up, and neckline. This is where a good cut becomes a great one.</p>
+                    <span class="process-time"><i class="fas fa-clock"></i> 7 min</span>
+                </article>
+                <article class="process-card">
+                    <span class="process-num">05</span>
+                    <div class="process-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Hot Towel Finish</h3>
+                    <p>Hot towel on the neck, a touch of balm, and a quick once-over with the mirror.</p>
+                    <span class="process-time"><i class="fas fa-clock"></i> 3 min</span>
+                </article>
+                <article class="process-card">
+                    <span class="process-num">06</span>
+                    <div class="process-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Styling Tips</h3>
+                    <p>We show you how to recreate it at home. Products, amounts, direction — no gatekeeping.</p>
+                    <span class="process-time"><i class="fas fa-clock"></i> 2 min</span>
+                </article>
+            </div>
+            <button class="process-nav-btn process-nav-next" id="processNext" aria-label="Next step"><i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
 </section>
@@ -2563,8 +2580,10 @@
             });
         });
 
-        /* ══ Process scroller — drag to scroll ══ */
-        const scroller = document.querySelector('.process-scroller');
+        /* ══ Process scroller — drag to scroll + nav ══ */
+        const scroller = document.getElementById('processScroller') || document.querySelector('.process-scroller');
+        const procPrev = document.getElementById('processPrev');
+        const procNext = document.getElementById('processNext');
         if (scroller) {
             let isDown = false, startX, scrollLeft;
             scroller.addEventListener('mousedown', (e) => {
@@ -2581,6 +2600,21 @@
                 const x = e.pageX - scroller.offsetLeft;
                 scroller.scrollLeft = scrollLeft - (x - startX) * 1.6;
             });
+
+            if (procPrev) {
+                procPrev.addEventListener('click', () => {
+                    const card = scroller.querySelector('.process-card');
+                    const cardWidth = card ? card.getBoundingClientRect().width : 320;
+                    scroller.scrollBy({ left: -(cardWidth + 19.2), behavior: 'smooth' });
+                });
+            }
+            if (procNext) {
+                procNext.addEventListener('click', () => {
+                    const card = scroller.querySelector('.process-card');
+                    const cardWidth = card ? card.getBoundingClientRect().width : 320;
+                    scroller.scrollBy({ left: cardWidth + 19.2, behavior: 'smooth' });
+                });
+            }
         }
     })();
 </script>
